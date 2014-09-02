@@ -4,7 +4,7 @@
   <title><![CDATA[Chi Phan]]></title>
   <link href="http://www.ccphan.com/atom.xml" rel="self"/>
   <link href="http://www.ccphan.com/"/>
-  <updated>2014-09-02T18:39:31+09:00</updated>
+  <updated>2014-09-02T23:04:57+09:00</updated>
   <id>http://www.ccphan.com/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -30,12 +30,26 @@
 
 <h2>Octopress Command Reference</h2>
 
-<h3>Creating a Post</h3>
+<h3>Creating a Post and Page</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["title"]  
-</span><span class='line'>$ rake new_post["Setting up a Blog"]  </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["Setting up a Blog"]  
+</span><span class='line'># Creates source/_posts/2014-09-02-setting-up-a-blog.markdown</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Creating a Page</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_page[awesome-page]
+</span><span class='line'># creates /source/awesome-page/index.markdown
+</span><span class='line'> 
+</span><span class='line'>$ rake new_page[awesome-page/page.html]
+</span><span class='line'># creates /source/awesome-page/page.html</span></code></pre></td></tr></table></div></figure>
 
 
 <h3>Converting Markdown to html</h3>

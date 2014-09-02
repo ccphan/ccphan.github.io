@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Chi Phan]]></title>
   <link href="http://www.ccphan.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://www.ccphan.com/"/>
-  <updated>2014-09-02T18:39:31+09:00</updated>
+  <updated>2014-09-02T23:04:57+09:00</updated>
   <id>http://www.ccphan.com/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -30,10 +30,19 @@
 
 <h2>Octopress Command Reference</h2>
 
-<h3>Creating a Post</h3>
+<h3>Creating a Post and Page</h3>
 
-<pre><code>$ rake new_post["title"]  
-$ rake new_post["Setting up a Blog"]  
+<pre><code>$ rake new_post["Setting up a Blog"]  
+# Creates source/_posts/2014-09-02-setting-up-a-blog.markdown
+</code></pre>
+
+<h3>Creating a Page</h3>
+
+<pre><code>$ rake new_page[awesome-page]
+# creates /source/awesome-page/index.markdown
+
+$ rake new_page[awesome-page/page.html]
+# creates /source/awesome-page/page.html
 </code></pre>
 
 <h3>Converting Markdown to html</h3>

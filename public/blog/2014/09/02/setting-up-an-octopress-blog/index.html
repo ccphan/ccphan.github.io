@@ -58,6 +58,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
 </ul>
 
 </nav>
@@ -96,12 +97,26 @@
 
 <h2>Octopress Command Reference</h2>
 
-<h3>Creating a Post</h3>
+<h3>Creating a Post and Page</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["title"]  
-</span><span class='line'>$ rake new_post["Setting up a Blog"]  </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["Setting up a Blog"]  
+</span><span class='line'># Creates source/_posts/2014-09-02-setting-up-a-blog.markdown</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Creating a Page</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_page[awesome-page]
+</span><span class='line'># creates /source/awesome-page/index.markdown
+</span><span class='line'> 
+</span><span class='line'>$ rake new_page[awesome-page/page.html]
+</span><span class='line'># creates /source/awesome-page/page.html</span></code></pre></td></tr></table></div></figure>
 
 
 <h3>Converting Markdown to html</h3>
@@ -170,7 +185,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/" data-via="" data-counturl="http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/" data-via="phancc" data-counturl="http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/" >Tweet</a>
   
   
   
@@ -183,6 +198,12 @@
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -249,6 +270,22 @@
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'ccphanblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/';
+        var disqus_url = 'http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

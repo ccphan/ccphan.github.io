@@ -3,20 +3,33 @@ layout: post
 title: "Setting up an Octopress Blog"
 date: 2014-09-02 15:08:42 +0900
 comments: true
-categories: [Ruby, Rails, Octopress, Heroku] 
+categories: [Octopress, Heroku] 
 ---
-I'm starting this blog to document my findings and trials with getting started with web development via Ruby Rails.  This is my first foray into web development and my first ever blog.
+Get blogging with Octopress.  It has a number of advantages:
+* Jekyll based and Git-system back
+* posts and pages can be written in Markdown
+* quick and easy to deploy (Rails)
+* code snippet mark up
+* supports many plugins driven my Jekyll liquid templating
 
-I'm using Octopress as my blogging platform.  Fittingly it's built from Rails around Jekyll.  Deployment with be on Heroku.  Some of resouces used to help setup this blog:
+## Setup Guides ##
 
-> * [http://www.jackiejohnston.us/blog/setting-up-an-octopress-blog-on-heroku/](http://www.jackiejohnston.us/blog/setting-up-an-octopress-blog-on-heroku/ "jackiejohnston")  
-> * [http://octopress.org/docs/setup/](http://octopress.org/docs/setup/)  
+* [http://www.jackiejohnston.us/blog/setting-up-an-octopress-blog-on-heroku/](http://www.jackiejohnston.us/blog/setting-up-an-octopress-blog-on-heroku/ "jackiejohnston")  
+* [http://octopress.org/docs/setup/](http://octopress.org/docs/setup/)  
 
 ## Octopress Command Reference ##
-### Creating a Post ###
+### Creating a Post and Page###
 ```
-$ rake new_post["title"]  
 $ rake new_post["Setting up a Blog"]  
+# Creates source/_posts/2014-09-02-setting-up-a-blog.markdown
+```
+### Creating a Page ###
+```
+$ rake new_page[awesome-page]
+# creates /source/awesome-page/index.markdown
+ 
+$ rake new_page[awesome-page/page.html]
+# creates /source/awesome-page/page.html
 ```
 ### Converting Markdown to html ###
 ```
