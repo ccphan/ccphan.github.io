@@ -9,7 +9,7 @@
   <meta name="author" content="Chi Phan">
 
   
-  <meta name="description" content="A Blog Ok. I&rsquo;m starting a blog so I can start documenting my findings and trials with getting into web development via Ruby Rails. This is my &hellip;">
+  <meta name="description" content="I&rsquo;m starting this blog to document my findings and trials with getting started with web development via Ruby Rails. This is my first foray into &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,11 +87,63 @@
   </header>
 
 
-  <div class="entry-content"><h1>A Blog</h1>
+  <div class="entry-content"><p>I&rsquo;m starting this blog to document my findings and trials with getting started with web development via Ruby Rails.  This is my first foray into web development and my first ever blog.</p>
 
-<p>Ok.  I&rsquo;m starting a blog so I can start documenting my findings and trials with getting into web development via Ruby Rails.  This is my first foray into web development and my first ever blog!</p>
+<p>I&rsquo;m using Octopress as my blogging platform.  Fittingly it&rsquo;s built from Rails around Jekyll.  Deployment with be on Heroku.  Some of resouces used to help setup this blog:</p>
 
-<p>I&rsquo;m using Octopress as my bloggin platform.  Fittingly it&rsquo;s built from Rails around Jekyll.</p>
+<blockquote><ul>
+<li><a href="http://www.jackiejohnston.us/blog/setting-up-an-octopress-blog-on-heroku/" title="jackiejohnston">http://www.jackiejohnston.us/blog/setting-up-an-octopress-blog-on-heroku/</a></li>
+<li><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></li>
+</ul>
+</blockquote>
+
+<h2>Octopress Command Reference</h2>
+
+<h3>Creating a Post</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["title"]  
+</span><span class='line'>$ rake new_post["Setting up a Blog"]  </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Converting Markdown to html</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate  </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Preview</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake preview  </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Deploy on Heroku and view</h3>
+
+<p>Create a git remote name &ldquo;heroku&rdquo; to point to you git respository on Heroku:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git config branch.master.remote heroku  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Commit and deploy onto Heroku:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add .
+</span><span class='line'>$ git commit -m "some update"
+</span><span class='line'>$ git push heroku master    
+</span><span class='line'>$ heroku open  </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Markdown</h2>
+
+<p>The source posts files genereated are in <a href="http://en.wikipedia.org/wiki/Markdown/" title="Markdown">Markdown</a> format by default.</p>
+
+<p>In terms of styling, take a look at <a href="http://daringfireball.net/projects/markdown/basics">Markdown reference</a>.  Also Octopress comes bundled with it&rsquo;s own code snippets mark up.  Check it out <a href="http://octopress.org/docs/blogging/code/">here</a>.</p>
 </div>
   
   
@@ -150,7 +202,11 @@
 
 
 
-Included file &#8216;asides/twitter.html&#8217; not found in _includes directory
+<section>
+    <h1>Twitter</h1>
+    <a class="twitter-timeline" href="https://twitter.com/phancc" data-widget-id="506735588892897280">Tweets by @phancc</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
   
 </aside>
 
