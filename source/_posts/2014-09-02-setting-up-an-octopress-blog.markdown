@@ -5,12 +5,13 @@ date: 2014-09-02 15:08:42 +0900
 comments: true
 categories: [Octopress, Heroku] 
 ---
-Get blogging with Octopress.  It has a number of advantages:
-* Jekyll based and Git-system back
-* posts and pages can be written in Markdown
-* quick and easy to deploy (Rails)
-* code snippet mark up
-* supports many plugins driven my Jekyll liquid templating
+Get blogging with Octopress.  It has a number of advantages:  
+
+*  Jekyll based and Git-system back  
+*  posts and pages can be written in Markdown  
+*  quick and easy to deploy (Rails)  
+*  stlyish code snippet mark up  
+*  supports many plugins driven my Jekyll liquid templating  
 
 ## Setup Guides ##
 
@@ -18,7 +19,7 @@ Get blogging with Octopress.  It has a number of advantages:
 * [http://octopress.org/docs/setup/](http://octopress.org/docs/setup/)  
 
 ## Octopress Command Reference ##
-### Creating a Post and Page###
+### Creating a Post ###
 ```
 $ rake new_post["Setting up a Blog"]  
 # Creates source/_posts/2014-09-02-setting-up-a-blog.markdown
@@ -31,7 +32,7 @@ $ rake new_page[awesome-page]
 $ rake new_page[awesome-page/page.html]
 # creates /source/awesome-page/page.html
 ```
-### Converting Markdown to html ###
+### Converting Markdown to HTML ###
 ```
 $ rake generate  
 ```
