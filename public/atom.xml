@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Chi Phan]]></title>
+  <link href="http://www.ccphan.com/atom.xml" rel="self"/>
+  <link href="http://www.ccphan.com/"/>
+  <updated>2014-09-02T15:21:57+09:00</updated>
+  <id>http://www.ccphan.com/</id>
+  <author>
+    <name><![CDATA[Chi Phan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Setting Up an Octopress Blog]]></title>
+    <link href="http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/"/>
+    <updated>2014-09-02T15:08:42+09:00</updated>
+    <id>http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog</id>
+    <content type="html"><![CDATA[<h1>A Blog</h1>
+
+<p>Ok.  I&rsquo;m starting a blog so I can start documenting my findings and trials with getting into web development via Ruby Rails.  This is my first foray into web development and my first ever blog!</p>
+
+<p>I&rsquo;m using Octopress as my bloggin platform.  Fittingly it&rsquo;s built from Rails around Jekyll.</p>
+]]></content>
+  </entry>
+  
+</feed>
