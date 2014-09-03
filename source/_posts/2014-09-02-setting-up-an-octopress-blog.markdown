@@ -3,7 +3,7 @@ layout: post
 title: "Setting up a Octopress Blog"
 date: 2014-09-02 15:08:42 +0900
 comments: true
-categories: [Octopress, Heroku] 
+categories: [Octopress, Heroku, markdown] 
 ---
 Get blogging with Octopress.  It has a number of advantages:  
 
@@ -83,9 +83,9 @@ end
 $ rake new_post["Setting up a Blog"]  
 # Creates source/_posts/2014-09-02-setting-up-a-blog.markdown
 ```
-The source posts files genereated are in [Markdown](http://en.wikipedia.org/wiki/Markdown/ "Markdown") format by default.  
+The source posts files genereated are in [markdown](http://en.wikipedia.org/wiki/Markdown/ "markdown") format by default.  
 
-In terms of styling, take a look at [Markdown reference](http://daringfireball.net/projects/markdown/basics).  Also Octopress comes bundled with its own code snippets markup.  Check it out [here](http://octopress.org/docs/blogging/code/).
+In terms of styling, take a look at [markdown reference](http://daringfireball.net/projects/markdown/basics).  Also Octopress comes bundled with its own code snippets markup.  Check it out [here](http://octopress.org/docs/blogging/code/).
 
 ### 5. Creating an About Page
 ```

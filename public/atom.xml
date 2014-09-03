@@ -4,7 +4,7 @@
   <title><![CDATA[A Journey on Rails]]></title>
   <link href="http://www.ccphan.com/atom.xml" rel="self"/>
   <link href="http://www.ccphan.com/"/>
-  <updated>2014-09-03T18:55:41+09:00</updated>
+  <updated>2014-09-03T20:03:38+09:00</updated>
   <id>http://www.ccphan.com/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -12,6 +12,102 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Getting Started With Heroku]]></title>
+    <link href="http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku/"/>
+    <updated>2014-09-03T19:29:22+09:00</updated>
+    <id>http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku</id>
+    <content type="html"><![CDATA[<p>Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction" title="Heroku setup">heroku dev site</a>.</p>
+
+<h3>1.  Sign up for Heroku and Install the Toolbelt</h3>
+
+<p><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up" title="Heroku Toolbelt">It it here</a>.</p>
+
+<h3>2.  Log into heroku from console:</h3>
+
+<pre><code>    $ heroku login 
+</code></pre>
+
+<h3>3. Head into project:</h3>
+
+<pre><code>    $ git clone https://github.com/heroku/ruby-getting-started.git
+    $ cd ruby-getting-started
+</code></pre>
+
+<h3>4. Create heroku remote repo and generate app name:</h3>
+
+<pre><code>    $ heroku create
+    Creating polar-inlet-4930... done, stack is cedar
+    http://polar-inlet-4930.herokuapp.com/ | git@heroku.com:polar-inlet-4930.git
+    Git remote heroku added
+</code></pre>
+
+<p>This also creates a remote repository (called <em>heroku</em>) which it configures in your local git repo. Heroku generates a random name (in this case <em>polar-inlet-4930</em>) for your app - you can pass a parameter to specify your own, or rename it later with <code>$ heroku rename &lt;&lt;my_name&gt;&gt;</code></p>
+
+<p>Just remember to check the <code>.git/config</code> that the remote url is now pointing to the correct heroku git repository. Otherwise run this: <code>$ git remote set-url heroku git@heroku.com:&lt;app_name&gt;.git</code></p>
+
+<h3>5. Deploy it:</h3>
+
+<pre><code>    $ git push heroku master
+</code></pre>
+
+<h3>6. Enable a instance to be running:</h3>
+
+<pre><code>    $ heroku ps:scale web=1
+</code></pre>
+
+<h3>7. Open website.</h3>
+
+<pre><code>    $ heroku open
+</code></pre>
+
+<p>Heroku starts up apps by running the <code>./Procfile</code>.  Contains something like:
+<code>web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb</code></p>
+
+<h3>8. Configure to your own domain</h3>
+
+<p>If you need to register a new domain name you can get one at <a href="https://www.namecheap.com/" title="namecheap">namecheap</a>.</p>
+
+<p>If you are using namecheap you will need to head to <code>Manage Domains &gt; Modify Domain</code> and click onto the <code>All Host Records</code>. Edit with the Heroku URL e.g. <code>polar-inlet-4930.herokuapp.com</code></p>
+
+<pre><code>    Host Name: www
+    IP Address/URL: polar-inlet-4930.herokuapp.com
+    Record Type: CNAME (Alias)
+</code></pre>
+
+<p>Head to Heroku Dashboard, select the appropriate app and add the new domain name.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Disqus Comments]]></title>
+    <link href="http://www.ccphan.com/blog/2014/09/03/disqus-comments/"/>
+    <updated>2014-09-03T19:11:11+09:00</updated>
+    <id>http://www.ccphan.com/blog/2014/09/03/disqus-comments</id>
+    <content type="html"><![CDATA[<p>Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.</p>
+
+<p>Octopress has plugin support to <strong>Disqus</strong> and it&rsquo;s pretty easy to setup.</p>
+
+<h3>1. Signup to Disqus</h3>
+
+<p>Head to <a href="https://disqus.com/" title="Disqus">disqus</a> and sign yourself up.  Keep note of the <em>site short name</em> they provide.</p>
+
+<h3>2. Edit _config.yml</h3>
+
+<figure class='code'><figcaption><span>_config.yml </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Disqus Comments</span>
+</span><span class='line'><span class="ss">disqus_short_name</span><span class="p">:</span> <span class="n">enter_short_name_here</span>
+</span><span class='line'><span class="ss">disqus_show_comment_count</span><span class="p">:</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That should be pretty much it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Setting Up a Octopress Blog]]></title>
@@ -131,9 +227,9 @@
 </span><span class='line'># Creates source/_posts/2014-09-02-setting-up-a-blog.markdown</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The source posts files genereated are in <a href="http://en.wikipedia.org/wiki/Markdown/" title="Markdown">Markdown</a> format by default.</p>
+<p>The source posts files genereated are in <a href="http://en.wikipedia.org/wiki/Markdown/" title="markdown">markdown</a> format by default.</p>
 
-<p>In terms of styling, take a look at <a href="http://daringfireball.net/projects/markdown/basics">Markdown reference</a>.  Also Octopress comes bundled with its own code snippets markup.  Check it out <a href="http://octopress.org/docs/blogging/code/">here</a>.</p>
+<p>In terms of styling, take a look at <a href="http://daringfireball.net/projects/markdown/basics">markdown reference</a>.  Also Octopress comes bundled with its own code snippets markup.  Check it out <a href="http://octopress.org/docs/blogging/code/">here</a>.</p>
 
 <h3>5. Creating an About Page</h3>
 

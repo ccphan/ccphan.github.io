@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - A Journey on Rails</title>
+  <title>Getting Started With Heroku - A Journey on Rails</title>
   <meta name="author" content="Chi Phan">
 
   
-  <meta name="description" content="Blog Archive 2014 Getting Started With Heroku
-Sep 03 2014 posted in domain registration, heroku Disqus Comments
-Sep 03 2014 posted in disqus, &hellip;">
+  <meta name="description" content="Quick and dirty guide to get you hosting your site online with Heroku. I pulled most of the details from heroku dev site. 1. Sign up for Heroku and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Sep 03 2014 posted in disqus, &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.ccphan.com/blog/archives">
+  <link rel="canonical" href="http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="A Journey on Rails" type="application/atom+xml">
@@ -67,64 +65,141 @@ Sep 03 2014 posted in disqus, &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Getting Started With Heroku</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-03T19:29:22+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>7:29 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.ccphan.com">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction" title="Heroku setup">heroku dev site</a>.</p>
 
-  
-  <h2>2014</h2>
+<h3>1.  Sign up for Heroku and Install the Toolbelt</h3>
 
-<article>
-  
-<h1><a href="/blog/2014/09/03/getting-started-with-heroku/">Getting Started With Heroku</a></h1>
-<time datetime="2014-09-03T19:29:22+09:00" pubdate><span class='month'>Sep</span> <span class='day'>03</span> <span class='year'>2014</span></time>
+<p><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up" title="Heroku Toolbelt">It it here</a>.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/domain-registration/'>domain registration</a>, <a class='category' href='/blog/categories/heroku/'>heroku</a></span>
-</footer>
+<h3>2.  Log into heroku from console:</h3>
 
+<pre><code>    $ heroku login 
+</code></pre>
 
-</article>
+<h3>3. Head into project:</h3>
 
+<pre><code>    $ git clone https://github.com/heroku/ruby-getting-started.git
+    $ cd ruby-getting-started
+</code></pre>
 
+<h3>4. Create heroku remote repo and generate app name:</h3>
 
-<article>
-  
-<h1><a href="/blog/2014/09/03/disqus-comments/">Disqus Comments</a></h1>
-<time datetime="2014-09-03T19:11:11+09:00" pubdate><span class='month'>Sep</span> <span class='day'>03</span> <span class='year'>2014</span></time>
+<pre><code>    $ heroku create
+    Creating polar-inlet-4930... done, stack is cedar
+    http://polar-inlet-4930.herokuapp.com/ | git@heroku.com:polar-inlet-4930.git
+    Git remote heroku added
+</code></pre>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/disqus/'>disqus</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<p>This also creates a remote repository (called <em>heroku</em>) which it configures in your local git repo. Heroku generates a random name (in this case <em>polar-inlet-4930</em>) for your app - you can pass a parameter to specify your own, or rename it later with <code>$ heroku rename &lt;&lt;my_name&gt;&gt;</code></p>
 
+<p>Just remember to check the <code>.git/config</code> that the remote url is now pointing to the correct heroku git repository. Otherwise run this: <code>$ git remote set-url heroku git@heroku.com:&lt;app_name&gt;.git</code></p>
 
-</article>
+<h3>5. Deploy it:</h3>
 
+<pre><code>    $ git push heroku master
+</code></pre>
 
+<h3>6. Enable a instance to be running:</h3>
 
-<article>
-  
-<h1><a href="/blog/2014/09/02/setting-up-an-octopress-blog/">Setting Up a Octopress Blog</a></h1>
-<time datetime="2014-09-02T15:08:42+09:00" pubdate><span class='month'>Sep</span> <span class='day'>02</span> <span class='year'>2014</span></time>
+<pre><code>    $ heroku ps:scale web=1
+</code></pre>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/markdown/'>markdown</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<h3>7. Open website.</h3>
 
+<pre><code>    $ heroku open
+</code></pre>
 
-</article>
+<p>Heroku starts up apps by running the <code>./Procfile</code>.  Contains something like:
+<code>web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb</code></p>
 
+<h3>8. Configure to your own domain</h3>
+
+<p>If you need to register a new domain name you can get one at <a href="https://www.namecheap.com/" title="namecheap">namecheap</a>.</p>
+
+<p>If you are using namecheap you will need to head to <code>Manage Domains &gt; Modify Domain</code> and click onto the <code>All Host Records</code>. Edit with the Heroku URL e.g. <code>polar-inlet-4930.herokuapp.com</code></p>
+
+<pre><code>    Host Name: www
+    IP Address/URL: polar-inlet-4930.herokuapp.com
+    Record Type: CNAME (Alias)
+</code></pre>
+
+<p>Head to Heroku Dashboard, select the appropriate app and add the new domain name.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Chi Phan</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-09-03T19:29:22+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>7:29 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/domain-registration/'>domain registration</a>, <a class='category' href='/blog/categories/heroku/'>heroku</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku/" data-via="phancc" data-counturl="http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/09/03/disqus-comments/" title="Previous Post: Disqus Comments">&laquo; Disqus Comments</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
 
 </div>
 
@@ -204,7 +279,10 @@ Sep 03 2014 posted in disqus, &hellip;">
       var disqus_shortname = 'ccphanblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku/';
+        var disqus_url = 'http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

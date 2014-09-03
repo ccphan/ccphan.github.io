@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Disqus Comments"
+date: 2014-09-03 19:11:11 +0900
+comments: true
+categories: [Octopress, Disqus] 
+---
+Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.
+
+Octopress has plugin support to __Disqus__ and it's pretty easy to setup.
+
+### 1. Signup to Disqus
+Head to [disqus](https://disqus.com/ "Disqus") and sign yourself up.  Keep note of the _site short name_ they provide.
+
+### 2. Edit _config.yml
+
+{% codeblock lang:ruby _config.yml %}
+# Disqus Comments
+disqus_short_name: enter_short_name_here
+disqus_show_comment_count: true
+{% endcodeblock %}
+
+
+That should be pretty much it.
