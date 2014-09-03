@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Octopress | Chi Phan]]></title>
+  <title><![CDATA[Category: Octopress | A Journey on Rails]]></title>
   <link href="http://www.ccphan.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://www.ccphan.com/"/>
-  <updated>2014-09-03T12:23:13+09:00</updated>
+  <updated>2014-09-03T18:55:41+09:00</updated>
   <id>http://www.ccphan.com/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -14,59 +14,160 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Setting Up an Octopress Blog]]></title>
+    <title type="html"><![CDATA[Setting Up a Octopress Blog]]></title>
     <link href="http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/"/>
     <updated>2014-09-02T15:08:42+09:00</updated>
     <id>http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog</id>
     <content type="html"><![CDATA[<p>Get blogging with Octopress.  It has a number of advantages:</p>
 
-<ul>
-<li>Jekyll based and Git-system back</li>
-<li>posts and pages can be written in Markdown</li>
-<li>quick and easy to deploy (Rails)</li>
-<li>stlyish code snippet mark up</li>
-<li>supports many plugins driven my Jekyll liquid templating</li>
-</ul>
+<pre><code>*  Jekyll based and Git-system backed  
+*  Markdown supported  
+*  Quick and easy to deploy (Rails)  
+*  Stylish code snippet markup  
+*  Supports many plugins driven by Jekyll liquid templating  
+</code></pre>
 
+<h2>Setup Guide</h2>
 
-<h2>Setup Guides</h2>
+<h3>1. Download Octopress</h3>
 
-<ul>
-<li><a href="http://www.jackiejohnston.us/blog/setting-up-an-octopress-blog-on-heroku/" title="jackiejohnston">http://www.jackiejohnston.us/blog/setting-up-an-octopress-blog-on-heroku/</a></li>
-<li><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></li>
-</ul>
+<pre><code>$ git clone git://github.com/imathis/octopress.git octopress
+$ cd octopress
+</code></pre>
 
+<h3>2. Install Octopress</h3>
 
-<h2>Octopress Command Reference</h2>
+<pre><code>$ gem install bundler
+$ bundle install
+$ rake install
+</code></pre>
 
-<h3>Creating a Post</h3>
+<h3>3. Configuration</h3>
+
+<h4>i. Edit <code>.gitignore</code></h4>
+
+<p>Remove lines: <code>public</code> and <code>Gemfile.lock</code>.</p>
+
+<h4>ii. Configure the <code>_config.yml</code></h4>
+
+<p>Basic settings:</p>
+
+<p><figure class='code'><figcaption><span>_config.yml </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">url</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;http://www.mysite.com&quot;</span><span class="o">&gt;</span><span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">mysite</span><span class="o">.</span><span class="n">com</span><span class="o">&lt;</span><span class="sr">/a&gt;</span>
+</span><span class='line'><span class="sr">title: My Blog</span>
+</span><span class='line'><span class="sr">subtitle: Just another blog</span>
+</span><span class='line'><span class="sr">author: My Name</span>
+</span><span class='line'><span class="sr">simple_search: &lt;a href=&quot;https:/</span><span class="o">/</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">search</span><span class="s2">&quot;&gt;https://www.google.com/search&lt;/a&gt;</span>
+</span><span class='line'><span class="s2">description: Rails blog</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>You can add third party feeds to the sidebar by appending the relevant html to the <code>default_asides:</code> list.</p>
+
+<p><figure class='code'><figcaption><span>_config.yml </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">delicious</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">pinboard</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">googleplus</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">twitter</span><span class="o">.</span><span class="n">html</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h4>iii. Twitter feed</h4>
+
+<p>To pull in twitter feeds you will need to grab the generated widget code from the Twitter site and create a <code>asides/twitter.html</code> file like below:</p>
+
+<p><figure class='code'><figcaption><span>source/_includes/asides/twitter.html </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;section&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>Twitter<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>  <span class="c">&lt;!-- PASTE THE WIDGET CODE HERE --&gt;</span>
+</span><span class='line'><span class="nt">&lt;/section&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Then paste the twitter widget code into stated section.</p>
+
+<h4>iv. Gemfile</h4>
+
+<p>Add the <code>:production</code> group for when this eventually gets deployed onto Heroku.</p>
+
+<p><figure class='code'><figcaption><span>Gemfile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:production</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">rake</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="o">~&gt;</span> <span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">jekyll</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="o">~&gt;</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">octopress</span><span class="o">-</span><span class="n">hooks</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="o">~&gt;</span> <span class="mi">2</span><span class="o">.</span><span class="mi">2</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span>
+</span><span class='line'>  <span class="o">&amp;</span><span class="n">hellip</span><span class="p">;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h3>4. Creating a Post</h3>
 
 <pre><code>$ rake new_post["Setting up a Blog"]  
 # Creates source/_posts/2014-09-02-setting-up-a-blog.markdown
 </code></pre>
 
-<h3>Creating a Page</h3>
+<p>The source posts files genereated are in <a href="http://en.wikipedia.org/wiki/Markdown/" title="Markdown">Markdown</a> format by default.</p>
 
-<pre><code>$ rake new_page[awesome-page]
-# creates /source/awesome-page/index.markdown
+<p>In terms of styling, take a look at <a href="http://daringfireball.net/projects/markdown/basics">Markdown reference</a>.  Also Octopress comes bundled with its own code snippets markup.  Check it out <a href="http://octopress.org/docs/blogging/code/">here</a>.</p>
 
-$ rake new_page[awesome-page/page.html]
-# creates /source/awesome-page/page.html
+<h3>5. Creating an About Page</h3>
+
+<pre><code>$ rake new_page[About]
+# creates source/about/index.markdown
 </code></pre>
 
-<h3>Converting Markdown to HTML</h3>
+<p><em>OR</em>
+&#8220;`
+$ rake new_page[About/page.html]</p>
+
+<h1>creates source/about/page.html</h1>
+
+<p><code>``
+To add a nav menu link to this page you will need to edit the</code>custom/navigation.html` to look something like:
+<figure class='code'><figcaption><span>source/_include/custom/navigation.html </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;main-navigation&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h3>6. Converting Markdown to HTML and preview</h3>
 
 <pre><code>$ rake generate  
+$ rake preview  
 </code></pre>
 
-<h3>Preview</h3>
+<p>Head to <code>http://localhost:4000</code> to preview site.</p>
 
-<pre><code>$ rake preview  
-</code></pre>
+<h3>7. Deploy on Heroku and view</h3>
 
-<h3>Deploy on Heroku and view</h3>
-
-<p>Create a git remote name &ldquo;heroku&rdquo; to point to you git respository on Heroku:
+<p>Create a git remote name &ldquo;<strong>heroku</strong>&rdquo; to point to you git respository on Heroku:
 <code>
 $ git config branch.master.remote heroku  
 </code></p>
@@ -79,11 +180,13 @@ $ git push heroku master
 $ heroku open  
 </code></p>
 
-<h2>Markdown</h2>
+<p>If you need tips on setting up Heroku check out the guide <a href="http://somelink.com" title="Guide to setting up Heroku">here</a>.</p>
 
-<p>The source posts files genereated are in <a href="http://en.wikipedia.org/wiki/Markdown/" title="Markdown">Markdown</a> format by default.</p>
+<p>Also you can find more details on setting up your own domain name <a href="http://somelink.com" title="Setting up your domain name">here</a>.</p>
 
-<p>In terms of styling, take a look at <a href="http://daringfireball.net/projects/markdown/basics">Markdown reference</a>.  Also Octopress comes bundled with it&rsquo;s own code snippets mark up.  Check it out <a href="http://octopress.org/docs/blogging/code/">here</a>.</p>
+<h3>Additonal Resources</h3>
+
+<p><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
 ]]></content>
   </entry>
   
