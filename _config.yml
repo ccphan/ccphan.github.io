@@ -4,10 +4,10 @@
 
 url: http://www.ccphan.com
 title: Chi Phan
-subtitle: Rails Blog 
+subtitle: A Journey on Rails  
 author: Chi Phan
 simple_search: https://www.google.com/search
-description: Rails journey
+description: Rails blog
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
