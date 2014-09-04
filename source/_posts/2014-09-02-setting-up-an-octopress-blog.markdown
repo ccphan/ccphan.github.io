@@ -3,7 +3,9 @@ layout: post
 title: "Setting up a Octopress Blog"
 date: 2014-09-02 15:08:42 +0900
 comments: true
-categories: [Octopress, Heroku, markdown] 
+categories: [Octopress, Heroku, markdown]
+description: Setting up Octopress
+keywords: Octopress, Heroku, Rails 
 ---
 Get blogging with Octopress.  It has a number of advantages:  
 

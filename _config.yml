@@ -7,7 +7,8 @@ title: A Journey on Rails
 subtitle: Tracking it as I go 
 author: Chi Phan
 simple_search: https://www.google.com/search
-description: Rails blog
+description: A Ruby on Rails blog
+keywords: Ruby, Rails, Octopress, html, css, sass
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in

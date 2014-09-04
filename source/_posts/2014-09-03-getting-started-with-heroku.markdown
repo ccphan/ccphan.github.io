@@ -4,6 +4,8 @@ title: "Getting Started with Heroku"
 date: 2014-09-03 19:29:22 +0900
 comments: true
 categories: [Heroku, domain registration] 
+description: Getting started with Heroku
+keywords: Heroku, Rails
 ---
 Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from [heroku dev site](https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction "Heroku setup").
 

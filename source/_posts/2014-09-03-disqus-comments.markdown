@@ -4,6 +4,8 @@ title: "Disqus Comments"
 date: 2014-09-03 19:11:11 +0900
 comments: true
 categories: [Octopress, Disqus] 
+description: Setting up Disqus on Octopress
+keywords: Octopress, Disqus
 ---
 Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.
 
