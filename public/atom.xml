@@ -4,7 +4,7 @@
   <title><![CDATA[A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-04T18:20:08+09:00</updated>
+  <updated>2014-09-04T19:36:35+09:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Linking to Internal Posts in Octopress]]></title>
+    <link href="http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress/"/>
+    <updated>2014-09-04T19:09:31+09:00</updated>
+    <id>http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress</id>
+    <content type="html"><![CDATA[<p>You can use the <code>post_url</code> to link to your internal posts:</p>
+
+<pre><code>    [link_text]({% post_url YYYY-MM-DD-your-internal-post %} "hover text")
+</code></pre>
+
+<p>However when running <em>rake generate</em> I hit this kind of error:</p>
+
+<pre><code>Liquid Exception: Tag '{%%20\post_url\%20YYYY-MM-DD-your-internal-post%20%}' was not properly terminated with regexp: /\%}/ in atom.xml
+</code></pre>
+
+<p>The fix appears to be replace &ldquo;markdownify&rdquo; to &ldquo;markdownize&rdquo; in the _includes/custom/category_feed.xml:</p>
+
+<figure class='code'><figcaption><span>source/_includes/custom/category_feed.xml </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;entry&gt;</span>
+</span><span class='line'>...
+</span><span class='line'><span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">&quot;html&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[{{ post.content | expand_urls: site.url | markdownize | cdata_escape }}]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+</span><span class='line'><span class="nt">&lt;/entry&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Getting Started With Heroku]]></title>
