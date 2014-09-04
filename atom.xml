@@ -4,7 +4,7 @@
   <title><![CDATA[A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-04T14:25:43+09:00</updated>
+  <updated>2014-09-04T15:34:41+09:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -118,7 +118,7 @@
 
 <pre><code>*  Jekyll based and Git-system backed  
 *  Markdown supported  
-*  Quick and easy to deploy (Rails)  
+*  Quick and easy to deploy
 *  Stylish code snippet markup  
 *  Supports many plugins driven by Jekyll liquid templating  
 </code></pre>
@@ -294,6 +294,66 @@
 
 
 <p>If you need tips on setting up Heroku check out the guide <a href="http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku/" title="Guide to setting up Heroku">here</a>.</p>
+
+<h3>8. Deploying on GitHub (Alternative)</h3>
+
+<p>The workflow is slightly different when chosing to deploy onto GitHub.  Initial development work is done on a <code>source</code> branch and when everything is good the generated content is deployed onto a <code>master</code> branch on GitHub which is like the public directory on a web server.</p>
+
+<h4>Create a new GitHub repository</h4>
+
+<p>The format should be <code>username.github.io</code>.  You&rsquo;ll be able to access your site with the url <code>http://username.github.io</code>.</p>
+
+<h4>Run the Octopress setup tasks</h4>
+
+<pre><code>$ rake setup_github_pages
+</code></pre>
+
+<p>The rake task will ask you for a URL of the Github repo. Copy the SSH or HTTPS URL from your newly created repository (e.g. git@github.com:username/username.github.io.git) and paste it in as a response.</p>
+
+<p>This will:</p>
+
+<ul>
+<li>Ask for and store your Github Pages repository url.</li>
+<li>Rename the remote pointing to imathis/octopress from &lsquo;origin&rsquo; to &lsquo;octopress&rsquo;</li>
+<li>Add your Github Pages repository as the default origin remote.</li>
+<li>Switch the active branch from master to source.</li>
+<li>Configure your blog&rsquo;s url according to your repository.</li>
+<li>Setup a master branch in the _deploy directory for deployment.</li>
+</ul>
+
+
+<h4>Deploy it</h4>
+
+<pre><code>$ rake generate
+$ rake deploy
+</code></pre>
+
+<p>This will copy generated files to <code>_deploy/</code> directory, git add, git commit and git push to master branch.  You&rsquo;ll be able to view the site at <code>http://username.github.io</code>.</p>
+
+<h4>Checking in your local source changes</h4>
+
+<p>Going forward remember to check in your local changes.</p>
+
+<pre><code>$ rake generate
+$ git add .
+$ git commit -m 'your message'
+$ git push origin source
+</code></pre>
+
+<h4>Custom Domains</h4>
+
+<p>If you need to register a new domain name you can get one at <a href="https://www.namecheap.com/" title="namecheap">namecheap</a>.</p>
+
+<p>If you are using namecheap you will need to head to <code>Manage Domains &gt; Modify Domain</code> and click onto the <code>All Host Records</code>. Edit with the GitHub domain name e.g. <code>username.github.io</code></p>
+
+<pre><code>    Host Name: www
+    IP Address/URL: username.github.io
+    Record Type: CNAME (Alias)
+</code></pre>
+
+<p>Create a <code>CNAME</code> file under your blog&rsquo;s <code>source/</code> directory and add a line with your custom domain <code>www.customdomain.com</code>.</p>
+
+<p>Note it may take some time for your DNS changes to propagate.</p>
 
 <h3>Additonal Resources</h3>
 
