@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-04T15:34:41+09:00</updated>
+  <updated>2014-09-04T16:00:20+09:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -233,13 +233,17 @@ Going forward remember to check in your local changes.
 #### Custom Domains
 If you need to register a new domain name you can get one at [namecheap](https://www.namecheap.com/ &#8220;namecheap&#8221;).
 
-If you are using namecheap you will need to head to `Manage Domains > Modify Domain` and click onto the `All Host Records`. Edit with the GitHub domain name e.g. `username.github.io`
+If you are using namecheap you will need to head to `Manage Domains > Modify Domain` and click onto the `All Host Records`. Edit with the following:
+
+        Host Name: @
+        IP Address/URL: 192.30.252.153
+        Record Type: A (Address)
 
         Host Name: www
         IP Address/URL: username.github.io
         Record Type: CNAME (Alias)
 
-Create a `CNAME` file under your blog&#8217;s `source/` directory and add a line with your custom domain `www.customdomain.com`.
+Create a `CNAME` file under your blog&#8217;s `source/` directory and add a line with your custom domain `customdomain.com`.
 
 Note it may take some time for your DNS changes to propagate.
 

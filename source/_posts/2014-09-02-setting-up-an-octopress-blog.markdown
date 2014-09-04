@@ -171,13 +171,17 @@ Going forward remember to check in your local changes.
 #### Custom Domains
 If you need to register a new domain name you can get one at [namecheap](https://www.namecheap.com/ "namecheap").
 
-If you are using namecheap you will need to head to `Manage Domains > Modify Domain` and click onto the `All Host Records`. Edit with the GitHub domain name e.g. `username.github.io`
+If you are using namecheap you will need to head to `Manage Domains > Modify Domain` and click onto the `All Host Records`. Edit with the following:
+
+        Host Name: @
+        IP Address/URL: 192.30.252.153
+        Record Type: A (Address)
 
         Host Name: www
         IP Address/URL: username.github.io
         Record Type: CNAME (Alias)
 
-Create a `CNAME` file under your blog's `source/` directory and add a line with your custom domain `www.customdomain.com`.
+Create a `CNAME` file under your blog's `source/` directory and add a line with your custom domain `customdomain.com`.
 
 Note it may take some time for your DNS changes to propagate.
 
