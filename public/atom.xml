@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[A Journey on Rails]]></title>
-  <link href="http://www.ccphan.com/atom.xml" rel="self"/>
-  <link href="http://www.ccphan.com/"/>
-  <updated>2014-09-04T13:14:59+09:00</updated>
-  <id>http://www.ccphan.com/</id>
+  <link href="http://ccphan.github.io/atom.xml" rel="self"/>
+  <link href="http://ccphan.github.io/"/>
+  <updated>2014-09-04T14:25:43+09:00</updated>
+  <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Getting Started With Heroku]]></title>
-    <link href="http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku/"/>
+    <link href="http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku/"/>
     <updated>2014-09-03T19:29:22+09:00</updated>
-    <id>http://www.ccphan.com/blog/2014/09/03/getting-started-with-heroku</id>
+    <id>http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku</id>
     <content type="html"><![CDATA[<p>Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction" title="Heroku setup">heroku dev site</a>.</p>
 
 <h3>1.  Sign up for Heroku and Install the Toolbelt</h3>
@@ -82,9 +82,9 @@
   
   <entry>
     <title type="html"><![CDATA[Disqus Comments]]></title>
-    <link href="http://www.ccphan.com/blog/2014/09/03/disqus-comments/"/>
+    <link href="http://ccphan.github.io/blog/2014/09/03/disqus-comments/"/>
     <updated>2014-09-03T19:11:11+09:00</updated>
-    <id>http://www.ccphan.com/blog/2014/09/03/disqus-comments</id>
+    <id>http://ccphan.github.io/blog/2014/09/03/disqus-comments</id>
     <content type="html"><![CDATA[<p>Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.</p>
 
 <p>Octopress has plugin support to <strong>Disqus</strong> and it&rsquo;s pretty easy to setup.</p>
@@ -111,9 +111,9 @@
   
   <entry>
     <title type="html"><![CDATA[Setting Up a Octopress Blog]]></title>
-    <link href="http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog/"/>
+    <link href="http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog/"/>
     <updated>2014-09-02T15:08:42+09:00</updated>
-    <id>http://www.ccphan.com/blog/2014/09/02/setting-up-an-octopress-blog</id>
+    <id>http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog</id>
     <content type="html"><![CDATA[<p>Get blogging with Octopress.  It has a number of advantages:</p>
 
 <pre><code>*  Jekyll based and Git-system backed  
@@ -293,9 +293,7 @@
 </span><span class='line'>$ heroku open  </span></code></pre></td></tr></table></div></figure>
 
 
-<p>If you need tips on setting up Heroku check out the guide <a href="http://somelink.com" title="Guide to setting up Heroku">here</a>.</p>
-
-<p>Also you can find more details on setting up your own domain name <a href="http://somelink.com" title="Setting up your domain name">here</a>.</p>
+<p>If you need tips on setting up Heroku check out the guide <a href="http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku/" title="Guide to setting up Heroku">here</a>.</p>
 
 <h3>Additonal Resources</h3>
 

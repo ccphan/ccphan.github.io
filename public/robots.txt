@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://www.ccphan.com/sitemap.xml 
+Sitemap: http://ccphan.github.io/sitemap.xml 

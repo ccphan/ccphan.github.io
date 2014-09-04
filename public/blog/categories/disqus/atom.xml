@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Disqus | A Journey on Rails]]></title>
-  <link href="http://www.ccphan.com/blog/categories/disqus/atom.xml" rel="self"/>
-  <link href="http://www.ccphan.com/"/>
-  <updated>2014-09-04T13:14:59+09:00</updated>
-  <id>http://www.ccphan.com/</id>
+  <link href="http://ccphan.github.io/blog/categories/disqus/atom.xml" rel="self"/>
+  <link href="http://ccphan.github.io/"/>
+  <updated>2014-09-04T14:25:43+09:00</updated>
+  <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
     
@@ -15,36 +15,29 @@
   
   <entry>
     <title type="html"><![CDATA[Disqus Comments]]></title>
-    <link href="http://www.ccphan.com/blog/2014/09/03/disqus-comments/"/>
+    <link href="http://ccphan.github.io/blog/2014/09/03/disqus-comments/"/>
     <updated>2014-09-03T19:11:11+09:00</updated>
-    <id>http://www.ccphan.com/blog/2014/09/03/disqus-comments</id>
-    <content type="html"><![CDATA[<p>Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.</p>
+    <id>http://ccphan.github.io/blog/2014/09/03/disqus-comments</id>
+    <content type="html"><![CDATA[Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.
 
-<p>Octopress has plugin support to <strong>Disqus</strong> and it&rsquo;s pretty easy to setup.</p>
+Octopress has plugin support to __Disqus__ and it's pretty easy to setup.
 
-<h3>1. Signup to Disqus</h3>
+### 1. Signup to Disqus
+Head to [disqus](https://disqus.com/ "Disqus") and sign yourself up.  Keep note of the _site short name_ they provide.
 
-<p>Head to <a href="https://disqus.com/" title="Disqus">disqus</a> and sign yourself up.  Keep note of the <em>site short name</em> they provide.</p>
+### 2. Edit _config.yml
 
-<h3>2. Edit _config.yml</h3>
-
-<p><figure class='code'><figcaption><span>_config.yml </span></figcaption>
+<figure class='code'><figcaption><span>_config.yml </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;h1&gt;Disqus Comments&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span><span class="ss">disqus_short_name</span><span class="p">:</span> <span class="n">enter_short_name_here</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Disqus Comments</span>
+</span><span class='line'><span class="ss">disqus_short_name</span><span class="p">:</span> <span class="n">enter_short_name_here</span>
 </span><span class='line'><span class="ss">disqus_show_comment_count</span><span class="p">:</span> <span class="kp">true</span>
-</span></code></pre></td></tr></table></div></figure></p>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>That should be pretty much it.</p>
-]]></content>
+
+That should be pretty much it.]]></content>
   </entry>
   
 </feed>

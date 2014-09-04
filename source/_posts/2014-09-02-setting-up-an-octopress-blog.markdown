@@ -130,9 +130,7 @@ $ git push heroku master
 $ heroku open  
 ```
 
-If you need tips on setting up Heroku check out the guide [here](http://somelink.com "Guide to setting up Heroku").
-
-Also you can find more details on setting up your own domain name [here](http://somelink.com "Setting up your domain name").
+If you need tips on setting up Heroku check out the guide [here]({% post_url 2014-09-03-getting-started-with-heroku %} "Guide to setting up Heroku").
 
 ### Additonal Resources
 [http://octopress.org/docs/setup/](http://octopress.org/docs/setup/)
