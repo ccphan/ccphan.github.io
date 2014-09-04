@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Markdown - A Journey on Rails</title>
+  <title>Linking to Internal Posts in Octopress - A Journey on Rails</title>
   <meta name="author" content="Chi Phan">
 
   
-  <meta name="description" content="Category: markdown">
-  <meta name="keywords" content="Ruby, Rails, Octopress, html, css, sass">
+  <meta name="description" content="Linking to internal with posts with post_url in Octopress">
+  <meta name="keywords" content="Octopress">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ccphan.github.io/blog/categories/markdown">
+  <link rel="canonical" href="http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="A Journey on Rails" type="application/atom+xml">
@@ -78,36 +78,107 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Markdown</h1>
+    
+      <h1 class="entry-title">Linking to Internal Posts in Octopress</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-04T19:09:31+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:09 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://ccphan.github.io">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>You can use the <code>post_url</code> to link to your internal posts:</p>
 
-  
-  <h2>2014</h2>
+<pre><code>    [link_text]({% post_url YYYY-MM-DD-your-internal-post %} "hover text")
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2014/09/02/setting-up-an-octopress-blog/">Setting Up a Octopress Blog</a></h1>
-<time datetime="2014-09-02T15:08:42+09:00" pubdate><span class='month'>Sep</span> <span class='day'>02</span> <span class='year'>2014</span></time>
+<p>However when running <em>rake generate</em> I hit this kind of error:</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/markdown/'>markdown</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<pre><code>Liquid Exception: Tag '{%%20\post_url\%20YYYY-MM-DD-your-internal-post%20%}' was not properly terminated with regexp: /\%}/ in atom.xml
+</code></pre>
 
+<p>The fix appears to be replace &ldquo;markdownify&rdquo; to &ldquo;markdownize&rdquo; in the _includes/custom/category_feed.xml:</p>
 
-</article>
+<figure class='code'><figcaption><span>source/_includes/custom/category_feed.xml </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;entry&gt;</span>
+</span><span class='line'>...
+</span><span class='line'><span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">&quot;html&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[{{ post.content | expand_urls: site.url | markdownize | cdata_escape }}]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+</span><span class='line'><span class="nt">&lt;/entry&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Chi Phan</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-09-04T19:09:31+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:09 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/octopress/'>octopress</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress/" data-via="phancc" data-counturl="http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/09/03/getting-started-with-heroku/" title="Previous Post: Getting Started with Heroku">&laquo; Getting Started with Heroku</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/09/04/escaping-characters-in-octopress/" title="Next Post: Escaping characters in Octopress">Escaping characters in Octopress &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
 
 </div>
 
@@ -195,7 +266,10 @@
       var disqus_shortname = 'ccphanblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress/';
+        var disqus_url = 'http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

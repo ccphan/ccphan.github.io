@@ -85,6 +85,127 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/09/04/escaping-characters-in-octopress/">Escaping Characters in Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-04T19:38:44+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:38 pm</span></time>
+        
+           | <a href="/blog/2014/09/04/escaping-characters-in-octopress/#disqus_thread"
+             data-disqus-identifier="http://ccphan.github.io/blog/2014/09/04/escaping-characters-in-octopress/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>To ensure that a particular content block won&rsquo;t be parsed by Liquid and displayed &lsquo;as is&rsquo; you can enclose the block contents in <code>&lt;% raw %&gt;</code> and <code>&lt;% endraw %&gt;</code> tag.</p>
+
+<p>For example you can display xml snippet like (replace <code>[</code> with <code>{</code> in example):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>[% codeblock lang:xml file.xml %]
+</span><span class='line'>  [% raw %]
+</span><span class='line'>    <span class="nt">&lt;entry&gt;</span>
+</span><span class='line'>    ...
+</span><span class='line'>    <span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">&quot;html&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[{{ post.content | expand_urls: site.url | markdownize | cdata_escape }}]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/entry&gt;</span>
+</span><span class='line'>  [% endraw %]
+</span><span class='line'>[% endcodeblock %]
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&rsquo;ll appear like:</p>
+
+<figure class='code'><figcaption><span>file.xml </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;entry&gt;</span>
+</span><span class='line'>...
+</span><span class='line'><span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">&quot;html&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[{{ post.content | expand_urls: site.url | markdownize | cdata_escape }}]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+</span><span class='line'><span class="nt">&lt;/entry&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/04/linking-to-internal-posts-in-octopress/">Linking to Internal Posts in Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-04T19:09:31+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:09 pm</span></time>
+        
+           | <a href="/blog/2014/09/04/linking-to-internal-posts-in-octopress/#disqus_thread"
+             data-disqus-identifier="http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You can use the <code>post_url</code> to link to your internal posts:</p>
+
+<pre><code>    [link_text]({% post_url YYYY-MM-DD-your-internal-post %} "hover text")
+</code></pre>
+
+<p>However when running <em>rake generate</em> I hit this kind of error:</p>
+
+<pre><code>Liquid Exception: Tag '{%%20\post_url\%20YYYY-MM-DD-your-internal-post%20%}' was not properly terminated with regexp: /\%}/ in atom.xml
+</code></pre>
+
+<p>The fix appears to be replace &ldquo;markdownify&rdquo; to &ldquo;markdownize&rdquo; in the _includes/custom/category_feed.xml:</p>
+
+<figure class='code'><figcaption><span>source/_includes/custom/category_feed.xml </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;entry&gt;</span>
+</span><span class='line'>...
+</span><span class='line'><span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">&quot;html&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[{{ post.content | expand_urls: site.url | markdownize | cdata_escape }}]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+</span><span class='line'><span class="nt">&lt;/entry&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/09/03/getting-started-with-heroku/">Getting Started With Heroku</a></h1>
     
     
@@ -512,6 +633,14 @@ $ git push origin source
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/04/escaping-characters-in-octopress/">Escaping Characters in Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/04/linking-to-internal-posts-in-octopress/">Linking to Internal Posts in Octopress</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/09/03/getting-started-with-heroku/">Getting Started With Heroku</a>
