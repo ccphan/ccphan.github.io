@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Heroku | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/heroku/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-04T20:13:26+09:00</updated>
+  <updated>2014-09-05T01:38:31+09:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -19,10 +19,10 @@
     <updated>2014-09-03T19:29:22+09:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku</id>
     <content type="html"><![CDATA[Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from [heroku dev site](https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction "Heroku setup").
-
+<!-- more -->
 ### 1.  Sign up for Heroku and Install the Toolbelt
 
-[It it here](https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up "Heroku Toolbelt").
+[It it here](https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up &#8220;Heroku Toolbelt&#8221;).
 
 
 ### 2.  Log into heroku from console:
@@ -35,7 +35,7 @@
 
 ### 4. Create heroku remote repo and generate app name:
         $ heroku create
-        Creating polar-inlet-4930... done, stack is cedar
+        Creating polar-inlet-4930&#8230; done, stack is cedar
         http://polar-inlet-4930.herokuapp.com/ | git@heroku.com:polar-inlet-4930.git
         Git remote heroku added
 
@@ -80,6 +80,7 @@ Head to Heroku Dashboard, select the appropriate app and add the new domain name
     *  Stylish code snippet markup  
     *  Supports many plugins driven by Jekyll liquid templating  
 
+<!-- more -->
 ## Setup Guide
 
 ### 1. Download Octopress

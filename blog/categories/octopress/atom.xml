@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-04T20:13:26+09:00</updated>
+  <updated>2014-09-05T01:38:31+09:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -20,7 +20,7 @@
     <id>http://ccphan.github.io/blog/2014/09/04/escaping-characters-in-octopress</id>
     <content type="html"><![CDATA[To ensure that a particular content block won't be parsed by Liquid and displayed 'as is' you can enclose the block contents in `<% raw %>` and `<% endraw %>` tag.
 
-For example you can display xml snippet like (replace `[` with `{` in example):
+Example - displaying an xml snippet (replace `[` with `{` in example):
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -39,7 +39,7 @@ For example you can display xml snippet like (replace `[` with `{` in example):
 </span><span class='line'>  [% endraw %]
 </span><span class='line'>[% endcodeblock %]
 </span></code></pre></td></tr></table></div></figure>
-
+<!-- more -->
 It&#8217;ll appear like:
 
 <figure class='code'><figcaption><span>file.xml </span></figcaption>
@@ -65,14 +65,14 @@ It&#8217;ll appear like:
 
         [link_text]({% post_url YYYY-MM-DD-your-internal-post %} "hover text")
 
-
+<!-- more -->
 However when running _rake generate_ I hit this kind of error:
 
 
-    Liquid Exception: Tag '{%%20\post_url\%20YYYY-MM-DD-your-internal-post%20%}' was not properly terminated with regexp: /\%}/ in atom.xml
+    Liquid Exception: Tag &#8216;{%%20\post_url\%20YYYY-MM-DD-your-internal-post%20%}&#8217; was not properly terminated with regexp: /\%}/ in atom.xml
 
 
-The fix appears to be replace "markdownify" to "markdownize" in the _includes/custom/category_feed.xml:
+The fix appears to be replace &#8220;markdownify&#8221; to &#8220;markdownize&#8221; in the _includes/custom/category_feed.xml:
 
 <figure class='code'><figcaption><span>source/_includes/custom/category_feed.xml </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -92,12 +92,12 @@ The fix appears to be replace "markdownify" to "markdownize" in the _includes/cu
     <link href="http://ccphan.github.io/blog/2014/09/03/disqus-comments/"/>
     <updated>2014-09-03T19:11:11+09:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/03/disqus-comments</id>
-    <content type="html"><![CDATA[Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.
+    <content type="html"><![CDATA[Octopress generates static sites so to support comments you will need to turn to a third party service to host your comments.
 
 Octopress has plugin support to __Disqus__ and it's pretty easy to setup.
-
+<!-- more -->
 ### 1. Signup to Disqus
-Head to [disqus](https://disqus.com/ "Disqus") and sign yourself up.  Keep note of the _site short name_ they provide.
+Head to [disqus](https://disqus.com/ &#8220;Disqus&#8221;) and sign yourself up.  Keep note of the _site short name_ they provide.
 
 ### 2. Edit _config.yml
 
@@ -127,6 +127,7 @@ That should be pretty much it.]]></content>
     *  Stylish code snippet markup  
     *  Supports many plugins driven by Jekyll liquid templating  
 
+<!-- more -->
 ## Setup Guide
 
 ### 1. Download Octopress
