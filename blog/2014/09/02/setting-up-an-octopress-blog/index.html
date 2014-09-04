@@ -318,14 +318,18 @@ $ git push origin source
 
 <p>If you need to register a new domain name you can get one at <a href="https://www.namecheap.com/" title="namecheap">namecheap</a>.</p>
 
-<p>If you are using namecheap you will need to head to <code>Manage Domains &gt; Modify Domain</code> and click onto the <code>All Host Records</code>. Edit with the GitHub domain name e.g. <code>username.github.io</code></p>
+<p>If you are using namecheap you will need to head to <code>Manage Domains &gt; Modify Domain</code> and click onto the <code>All Host Records</code>. Edit with the following:</p>
 
-<pre><code>    Host Name: www
+<pre><code>    Host Name: @
+    IP Address/URL: 192.30.252.153
+    Record Type: A (Address)
+
+    Host Name: www
     IP Address/URL: username.github.io
     Record Type: CNAME (Alias)
 </code></pre>
 
-<p>Create a <code>CNAME</code> file under your blog&rsquo;s <code>source/</code> directory and add a line with your custom domain <code>www.customdomain.com</code>.</p>
+<p>Create a <code>CNAME</code> file under your blog&rsquo;s <code>source/</code> directory and add a line with your custom domain <code>customdomain.com</code>.</p>
 
 <p>Note it may take some time for your DNS changes to propagate.</p>
 
