@@ -15,6 +15,7 @@ Get blogging with Octopress.  It has a number of advantages:
     *  Stylish code snippet markup  
     *  Supports many plugins driven by Jekyll liquid templating  
 
+<!-- more -->
 ## Setup Guide
 
 ### 1. Download Octopress

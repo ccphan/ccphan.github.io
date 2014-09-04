@@ -7,10 +7,10 @@ categories: [Octopress, Disqus]
 description: Setting up Disqus on Octopress
 keywords: Octopress, Disqus
 ---
-Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.
+Octopress generates static sites so to support comments you will need to turn to a third party service to host your comments.
 
 Octopress has plugin support to __Disqus__ and it's pretty easy to setup.
-
+<!-- more -->
 ### 1. Signup to Disqus
 Head to [disqus](https://disqus.com/ "Disqus") and sign yourself up.  Keep note of the _site short name_ they provide.
 

@@ -8,7 +8,7 @@ description: Getting started with Heroku
 keywords: Heroku, Rails
 ---
 Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from [heroku dev site](https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction "Heroku setup").
-
+<!-- more -->
 ### 1.  Sign up for Heroku and Install the Toolbelt
 
 [It it here](https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up "Heroku Toolbelt").

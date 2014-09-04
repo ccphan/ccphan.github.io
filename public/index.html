@@ -106,7 +106,7 @@
 
   <div class="entry-content"><p>To ensure that a particular content block won&rsquo;t be parsed by Liquid and displayed &lsquo;as is&rsquo; you can enclose the block contents in <code>&lt;% raw %&gt;</code> and <code>&lt;% endraw %&gt;</code> tag.</p>
 
-<p>For example you can display xml snippet like (replace <code>[</code> with <code>{</code> in example):</p>
+<p>Example - displaying an xml snippet (replace <code>[</code> with <code>{</code> in example):</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -127,21 +127,12 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>It&rsquo;ll appear like:</p>
-
-<figure class='code'><figcaption><span>file.xml </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;entry&gt;</span>
-</span><span class='line'>...
-</span><span class='line'><span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">&quot;html&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[{{ post.content | expand_urls: site.url | markdownize | cdata_escape }}]]&gt;</span><span class="nt">&lt;/content&gt;</span>
-</span><span class='line'><span class="nt">&lt;/entry&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/04/escaping-characters-in-octopress/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -176,26 +167,12 @@
 <pre><code>    [link_text]({% post_url YYYY-MM-DD-your-internal-post %} "hover text")
 </code></pre>
 
-<p>However when running <em>rake generate</em> I hit this kind of error:</p>
-
-<pre><code>Liquid Exception: Tag '{%%20\post_url\%20YYYY-MM-DD-your-internal-post%20%}' was not properly terminated with regexp: /\%}/ in atom.xml
-</code></pre>
-
-<p>The fix appears to be replace &ldquo;markdownify&rdquo; to &ldquo;markdownize&rdquo; in the _includes/custom/category_feed.xml:</p>
-
-<figure class='code'><figcaption><span>source/_includes/custom/category_feed.xml </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;entry&gt;</span>
-</span><span class='line'>...
-</span><span class='line'><span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">&quot;html&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[{{ post.content | expand_urls: site.url | markdownize | cdata_escape }}]]&gt;</span><span class="nt">&lt;/content&gt;</span>
-</span><span class='line'><span class="nt">&lt;/entry&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/04/linking-to-internal-posts-in-octopress/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -227,65 +204,12 @@
 
   <div class="entry-content"><p>Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction" title="Heroku setup">heroku dev site</a>.</p>
 
-<h3>1.  Sign up for Heroku and Install the Toolbelt</h3>
-
-<p><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#set-up" title="Heroku Toolbelt">It it here</a>.</p>
-
-<h3>2.  Log into heroku from console:</h3>
-
-<pre><code>    $ heroku login 
-</code></pre>
-
-<h3>3. Head into project:</h3>
-
-<pre><code>    $ git clone https://github.com/heroku/ruby-getting-started.git
-    $ cd ruby-getting-started
-</code></pre>
-
-<h3>4. Create heroku remote repo and generate app name:</h3>
-
-<pre><code>    $ heroku create
-    Creating polar-inlet-4930... done, stack is cedar
-    http://polar-inlet-4930.herokuapp.com/ | git@heroku.com:polar-inlet-4930.git
-    Git remote heroku added
-</code></pre>
-
-<p>This also creates a remote repository (called <em>heroku</em>) which it configures in your local git repo. Heroku generates a random name (in this case <em>polar-inlet-4930</em>) for your app - you can pass a parameter to specify your own, or rename it later with <code>$ heroku rename &lt;&lt;my_name&gt;&gt;</code></p>
-
-<p>Just remember to check the <code>.git/config</code> that the remote url is now pointing to the correct heroku git repository. Otherwise run this: <code>$ git remote set-url heroku git@heroku.com:&lt;app_name&gt;.git</code></p>
-
-<h3>5. Deploy it:</h3>
-
-<pre><code>    $ git push heroku master
-</code></pre>
-
-<h3>6. Enable a instance to be running:</h3>
-
-<pre><code>    $ heroku ps:scale web=1
-</code></pre>
-
-<h3>7. Open website.</h3>
-
-<pre><code>    $ heroku open
-</code></pre>
-
-<p>Heroku starts up apps by running the <code>./Procfile</code>.  Contains something like:
-<code>web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb</code></p>
-
-<h3>8. Configure to your own domain</h3>
-
-<p>If you need to register a new domain name you can get one at <a href="https://www.namecheap.com/" title="namecheap">namecheap</a>.</p>
-
-<p>If you are using namecheap you will need to head to <code>Manage Domains &gt; Modify Domain</code> and click onto the <code>All Host Records</code>. Edit with the Heroku URL e.g. <code>polar-inlet-4930.herokuapp.com</code></p>
-
-<pre><code>    Host Name: www
-    IP Address/URL: polar-inlet-4930.herokuapp.com
-    Record Type: CNAME (Alias)
-</code></pre>
-
-<p>Head to Heroku Dashboard, select the appropriate app and add the new domain name.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/03/getting-started-with-heroku/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -315,29 +239,16 @@
   </header>
 
 
-  <div class="entry-content"><p>Octopress generates static sites so to support comments on your blog you are going to need to turn to some third party service to host your comments.</p>
+  <div class="entry-content"><p>Octopress generates static sites so to support comments you will need to turn to a third party service to host your comments.</p>
 
 <p>Octopress has plugin support to <strong>Disqus</strong> and it&rsquo;s pretty easy to setup.</p>
 
-<h3>1. Signup to Disqus</h3>
-
-<p>Head to <a href="https://disqus.com/" title="Disqus">disqus</a> and sign yourself up.  Keep note of the <em>site short name</em> they provide.</p>
-
-<h3>2. Edit _config.yml</h3>
-
-<figure class='code'><figcaption><span>_config.yml </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Disqus Comments</span>
-</span><span class='line'><span class="ss">disqus_short_name</span><span class="p">:</span> <span class="n">enter_short_name_here</span>
-</span><span class='line'><span class="ss">disqus_show_comment_count</span><span class="p">:</span> <span class="kp">true</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>That should be pretty much it.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/03/disqus-comments/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -376,247 +287,12 @@
 *  Supports many plugins driven by Jekyll liquid templating  
 </code></pre>
 
-<h2>Setup Guide</h2>
-
-<h3>1. Download Octopress</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>$ cd octopress</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>2. Install Octopress</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install bundler
-</span><span class='line'>$ bundle install
-</span><span class='line'>$ rake install</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>3. Configuration</h3>
-
-<h4>i. Edit <code>.gitignore</code></h4>
-
-<p>Remove lines: <code>public</code> and <code>Gemfile.lock</code>.</p>
-
-<h4>ii. Configure the <code>_config.yml</code></h4>
-
-<p>Basic settings:</p>
-
-<figure class='code'><figcaption><span>_config.yml </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">url</span><span class="p">:</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">mysite</span><span class="o">.</span><span class="n">com</span>
-</span><span class='line'><span class="ss">title</span><span class="p">:</span> <span class="no">My</span> <span class="no">Blog</span>
-</span><span class='line'><span class="ss">subtitle</span><span class="p">:</span> <span class="no">Just</span> <span class="n">another</span> <span class="n">blog</span>
-</span><span class='line'><span class="ss">author</span><span class="p">:</span> <span class="no">My</span> <span class="no">Name</span>
-</span><span class='line'><span class="ss">simple_search</span><span class="p">:</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">search</span>
-</span><span class='line'><span class="ss">description</span><span class="p">:</span> <span class="no">Rails</span> <span class="n">blog</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can add third party feeds to the sidebar by appending the relevant html to the <code>default_asides:</code> list.</p>
-
-<figure class='code'><figcaption><span>_config.yml </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">delicious</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">pinboard</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">googleplus</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">twitter</span><span class="o">.</span><span class="n">html</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>iii. Twitter feed</h4>
-
-<p>To pull in twitter feeds you will need to grab the generated widget code from the Twitter site and create a <code>asides/twitter.html</code> file like below:</p>
-
-<figure class='code'><figcaption><span>source/_includes/asides/twitter.html </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;section&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>Twitter<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!-- PASTE THE WIDGET CODE HERE --&gt;</span>
-</span><span class='line'><span class="nt">&lt;/section&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>Then paste the twitter widget code into stated section.</p>
-
-<h4>iv. Gemfile</h4>
-
-<p>Add the <code>:production</code> group for when this eventually gets deployed onto Heroku.</p>
-
-<figure class='code'><figcaption><span>Gemfile </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:production</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rake&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 10.0&#39;</span>
-</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;jekyll&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 2.0&#39;</span>
-</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;octopress-hooks&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 2.2&#39;</span>
-</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<h3>4. Creating a Post</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["Setting up a Blog"]  
-</span><span class='line'># Creates source/_posts/2014-09-02-setting-up-a-blog.markdown</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The source posts files genereated are in <a href="http://en.wikipedia.org/wiki/Markdown/" title="markdown">markdown</a> format by default.</p>
-
-<p>In terms of styling, take a look at <a href="http://daringfireball.net/projects/markdown/basics">markdown reference</a>.  Also Octopress comes bundled with its own code snippets markup.  Check it out <a href="http://octopress.org/docs/blogging/code/">here</a>.</p>
-
-<h3>5. Creating an About Page</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_page[About]
-</span><span class='line'># creates source/about/index.markdown</span></code></pre></td></tr></table></div></figure>
-
-
-<p><em>OR</em></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_page[About/page.html]
-</span><span class='line'># creates source/about/page.html</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To add a nav menu link to this page you will need to edit the <code>custom/navigation.html</code> to look something like:</p>
-
-<figure class='code'><figcaption><span>source/_include/custom/navigation.html </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;main-navigation&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>6. Converting Markdown to HTML and preview</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake generate  
-</span><span class='line'>$ rake preview  </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Head to <code>http://localhost:4000</code> to preview site.</p>
-
-<h3>7. Deploy on Heroku and view</h3>
-
-<p>Create a git remote name &ldquo;<strong>heroku</strong>&rdquo; to point to you git respository on Heroku:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git config branch.master.remote heroku  </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Commit and deploy onto Heroku:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git add .
-</span><span class='line'>$ git commit -m "some update"
-</span><span class='line'>$ git push heroku master    
-</span><span class='line'>$ heroku open  </span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you need tips on setting up Heroku check out the guide <a href="/blog/2014/09/03/getting-started-with-heroku/" title="Guide to setting up Heroku">here</a>.</p>
-
-<h3>8. Deploying on GitHub (Alternative)</h3>
-
-<p>The workflow is slightly different when chosing to deploy onto GitHub.  Initial development work is done on a <code>source</code> branch and when everything is good the generated content is deployed onto a <code>master</code> branch on GitHub which is like the public directory on a web server.</p>
-
-<h4>Create a new GitHub repository</h4>
-
-<p>The format should be <code>username.github.io</code>.  You&rsquo;ll be able to access your site with the url <code>http://username.github.io</code>.</p>
-
-<h4>Run the Octopress setup tasks</h4>
-
-<pre><code>$ rake setup_github_pages
-</code></pre>
-
-<p>The rake task will ask you for a URL of the Github repo. Copy the SSH or HTTPS URL from your newly created repository (e.g. git@github.com:username/username.github.io.git) and paste it in as a response.</p>
-
-<p>This will:</p>
-
-<ul>
-<li>Ask for and store your Github Pages repository url.</li>
-<li>Rename the remote pointing to imathis/octopress from &lsquo;origin&rsquo; to &lsquo;octopress&rsquo;</li>
-<li>Add your Github Pages repository as the default origin remote.</li>
-<li>Switch the active branch from master to source.</li>
-<li>Configure your blog&rsquo;s url according to your repository.</li>
-<li>Setup a master branch in the _deploy directory for deployment.</li>
-</ul>
-
-
-<h4>Deploy it</h4>
-
-<pre><code>$ rake generate
-$ rake deploy
-</code></pre>
-
-<p>This will copy generated files to <code>_deploy/</code> directory, git add, git commit and git push to master branch.  You&rsquo;ll be able to view the site at <code>http://username.github.io</code>.</p>
-
-<h4>Checking in your local source changes</h4>
-
-<p>Going forward remember to check in your local changes.</p>
-
-<pre><code>$ rake generate
-$ git add .
-$ git commit -m 'your message'
-$ git push origin source
-</code></pre>
-
-<h4>Custom Domains</h4>
-
-<p>If you need to register a new domain name you can get one at <a href="https://www.namecheap.com/" title="namecheap">namecheap</a>.</p>
-
-<p>If you are using namecheap you will need to head to <code>Manage Domains &gt; Modify Domain</code> and click onto the <code>All Host Records</code>. Edit with the following:</p>
-
-<pre><code>    Host Name: @
-    IP Address/URL: 192.30.252.153
-    Record Type: A (Address)
-
-    Host Name: www
-    IP Address/URL: username.github.io
-    Record Type: CNAME (Alias)
-</code></pre>
-
-<p>Create a <code>CNAME</code> file under your blog&rsquo;s <code>source/</code> directory and add a line with your custom domain <code>customdomain.com</code>.</p>
-
-<p>Note it may take some time for your DNS changes to propagate.</p>
-
-<h3>Additonal Resources</h3>
-
-<p><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/02/setting-up-an-octopress-blog/">Read on &rarr;</a>
+    </footer>
   
 
 

@@ -12,7 +12,7 @@ You can use the `post_url` to link to your internal posts:
 {% raw %}
         [link_text]({% post_url YYYY-MM-DD-your-internal-post %} "hover text")
 {% endraw %}
-
+<!-- more -->
 However when running _rake generate_ I hit this kind of error:
 
 {% raw %}

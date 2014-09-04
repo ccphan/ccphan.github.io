@@ -9,7 +9,7 @@ keywords: Octopress, octopress-escape-code
 ---
 To ensure that a particular content block won't be parsed by Liquid and displayed 'as is' you can enclose the block contents in `<% raw %>` and `<% endraw %>` tag.
 
-For example you can display xml snippet like (replace `[` with `{` in example):
+Example - displaying an xml snippet (replace `[` with `{` in example):
 
 {% codeblock lang:xml %}
 [% codeblock lang:xml file.xml %]
@@ -21,7 +21,7 @@ For example you can display xml snippet like (replace `[` with `{` in example):
   [% endraw %]
 [% endcodeblock %]
 {% endcodeblock %}
-
+<!-- more -->
 It'll appear like:
 
 {% codeblock lang:xml file.xml %}

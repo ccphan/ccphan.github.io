@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Markdown | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/markdown/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-04T20:13:26+09:00</updated>
+  <updated>2014-09-05T01:38:31+09:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -26,6 +26,7 @@
     *  Stylish code snippet markup  
     *  Supports many plugins driven by Jekyll liquid templating  
 
+<!-- more -->
 ## Setup Guide
 
 ### 1. Download Octopress
