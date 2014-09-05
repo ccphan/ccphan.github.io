@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Disqus Comments - A Journey on Rails</title>
+  <title>Adding Description and Keyword Meta Tags to Octopress - A Journey on Rails</title>
   <meta name="author" content="Chi Phan">
 
   
-  <meta name="description" content="Setting up Disqus on Octopress">
-  <meta name="keywords" content="Octopress, Disqus">
+  <meta name="description" content="A Ruby on Rails blog">
+  <meta name="keywords" content="Ruby, Rails, Octopress, html, css, sass">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ccphan.github.io/blog/2014/09/03/disqus-comments">
+  <link rel="canonical" href="http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="A Journey on Rails" type="application/atom+xml">
@@ -82,7 +82,7 @@
   
   <header>
     
-      <h1 class="entry-title">Disqus Comments</h1>
+      <h1 class="entry-title">Adding Description and Keyword Meta Tags to Octopress</h1>
     
     
       <p class="meta">
@@ -91,7 +91,7 @@
 
 
 
-<time class='entry-date' datetime='2014-09-03T19:11:11+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>7:11 pm</span></time>
+<time class='entry-date' datetime='2014-09-06T00:23:58+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:23 am</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://ccphan.github.io">Comments</a>
@@ -101,30 +101,62 @@
   </header>
 
 
-<div class="entry-content"><p>Octopress generates static sites so to support comments you will need to turn to a third party service to host your comments.</p>
-
-<p>Octopress has plugin support to <strong>Disqus</strong> and it&rsquo;s pretty easy to setup.</p>
+<div class="entry-content"><p>Octopress does not setup description and keyword meta tags.  So you&rsquo;ll need to make a few changes.</p>
 
 <!-- more -->
 
 
-<h3>1. Signup to Disqus</h3>
-
-<p>Head to <a href="https://disqus.com/" title="Disqus">disqus</a> and sign yourself up.  Keep note of the <em>site short name</em> they provide.</p>
-
-<h3>2. Edit _config.yml</h3>
+<p>In the _config.yml add:</p>
 
 <figure class='code'><figcaption><span>_config.yml </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Disqus Comments</span>
-</span><span class='line'><span class="ss">disqus_short_name</span><span class="p">:</span> <span class="n">enter_short_name_here</span>
-</span><span class='line'><span class="ss">disqus_show_comment_count</span><span class="p">:</span> <span class="kp">true</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://www.mysite.com</span>
+</span><span class='line'><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My Blog</span>
+</span><span class='line'><span class="l-Scalar-Plain">subtitle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Just another blog</span>
+</span><span class='line'><span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My Name</span>
+</span><span class='line'><span class="l-Scalar-Plain">simple_search</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://www.google.com/search</span>
+</span><span class='line'><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Rails blog</span>
+</span><span class='line'><span class="l-Scalar-Plain">keywords</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">key1, key2, key3</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>That should be pretty much it.</p>
+<p>In the post changes you&rsquo;ll need to add the &lsquo;description&rsquo; and &lsquo;keywords&rsquo; field manually to the YAML frontmatter (not investigated how to have this populated automatically).</p>
+
+<p>Then to have these displayed with your home page and post page you&rsquo;ll need to modify <code>source/_includes/head.html</code>.</p>
+
+<p>Before:</p>
+
+<figure class='code'><figcaption><span>source/_includes/head.html </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;author&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ site.author }}&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>{% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+</span><span class='line'><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;description&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ description | strip_html | condense_spaces | truncate:150 }}&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>{% if page.keywords %}<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;keywords&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ page.keywords }}&quot;</span><span class="nt">&gt;</span>{% endif %}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After:</p>
+
+<figure class='code'><figcaption><span>source/_includes/head.html </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;author&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ site.author }}&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>{% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+</span><span class='line'><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;description&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ description | strip_html | condense_spaces | truncate:150 }}&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>{% if page.keywords %}<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;keywords&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ page.keywords }}&quot;</span><span class="nt">&gt;</span>{% endif %}
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 
@@ -140,12 +172,12 @@
 
 
 
-<time class='entry-date' datetime='2014-09-03T19:11:11+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2014</span></span> <span class='time'>7:11 pm</span></time>
+<time class='entry-date' datetime='2014-09-06T00:23:58+09:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:23 am</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/disqus/'>disqus</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
+    <a class='category' href='/blog/categories/octopress/'>octopress</a>
   
 </span>
 
@@ -154,7 +186,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ccphan.github.io/blog/2014/09/03/disqus-comments/" data-via="phancc" data-counturl="http://ccphan.github.io/blog/2014/09/03/disqus-comments/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress/" data-via="phancc" data-counturl="http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -167,10 +199,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/09/02/setting-up-an-octopress-blog/" title="Previous Post: Setting up a Octopress Blog">&laquo; Setting up a Octopress Blog</a>
+        <a class="basic-alignment left" href="/blog/2014/09/04/escaping-characters-in-octopress/" title="Previous Post: Escaping characters in Octopress">&laquo; Escaping characters in Octopress</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/09/03/getting-started-with-heroku/" title="Next Post: Getting Started with Heroku">Getting Started with Heroku &raquo;</a>
       
     </p>
   </footer>
@@ -268,8 +298,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ccphan.github.io/blog/2014/09/03/disqus-comments/';
-        var disqus_url = 'http://ccphan.github.io/blog/2014/09/03/disqus-comments/';
+        var disqus_identifier = 'http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress/';
+        var disqus_url = 'http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress/';
         var disqus_script = 'embed.js';
       
     (function () {
