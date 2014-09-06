@@ -4,7 +4,7 @@ title: "Linking to internal posts in Octopress"
 date: 2014-09-04 19:09:31 +0900
 comments: true
 categories: [Octopress]  
-description: Linking to internal with posts with post_url in Octopress
+description: Linking to internal posts with post_url in Octopress
 keywords: Octopress
 ---
 You can use the `post_url` to link to your internal posts:
