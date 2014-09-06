@@ -4,7 +4,7 @@ title: "Adding  description and keywords meta tags to Octopress"
 date: 2014-09-06 00:23:58 +0900
 comments: true
 categories: Octopress 
-escription: Adding meta description and keywords Octopress
+description: Adding meta description and keywords Octopress
 keywords: Octopress, meta tags
 ---
 Octopress does not setup description and keyword meta tags.  So you'll need to make a few changes.

@@ -4,7 +4,7 @@
   <title><![CDATA[A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-06T12:23:40+09:00</updated>
+  <updated>2014-09-07T02:26:44+09:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -12,6 +12,171 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Setting Up Rails Environment]]></title>
+    <link href="http://ccphan.github.io/blog/2014/09/07/setting-up-rails-environment/"/>
+    <updated>2014-09-07T01:23:19+09:00</updated>
+    <id>http://ccphan.github.io/blog/2014/09/07/setting-up-rails-environment</id>
+    <content type="html"><![CDATA[<p>Time to install Ruby and Rails&hellip;</p>
+
+<!-- more -->
+
+
+<h2>Installing Ruby</h2>
+
+<p>Running OS X or Linux use Ruby Version Manager (rvm) to install and manage different versions of ruby.</p>
+
+<h4>1. Install rvm:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ curl -sSL https://get.rvm.io | bash -s stable</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2. Update to the latest version of rvm:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm get stable</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>3. Check the requirements to install Ruby:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm requirements</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>4. Using Homebrew on OSX you can install any missing libraries/apts:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ brew install libtool libxslt libksba openssl libyaml</span></code></pre></td></tr></table></div></figure>
+
+
+<p>On Linus use apt-get or yum:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Debian
+</span><span class='line'>$ apt-get install libyaml-dev
+</span><span class='line'>
+</span><span class='line'># Fedora/RHEL/CentOS
+</span><span class='line'>$ yum install libyaml-devel</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>5. Install Ruby:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm install 2.0.0 --with-openssl-dir=$HOME/.rvm/usr</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>6. Check ruby version installed:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm list</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>7. Check version of ruby in use:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ruby -v</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Gemsets</h2>
+
+<p>Gems are essentially self contained packages of ruby code.  Due to possible conflict of gem versions it is useful to tie a particular <code>gem version</code> used for a particular <code>ruby version</code>.  We associate these into a <code>gemset</code>.</p>
+
+<h4>1. Create a gemset for a ruby version:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm use 2.0.0@railstutorial_rails_4_0 --create --default</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This command creates <code>(--create)</code> the gemset <code>railstutorial_rails_4_0</code> associated with <code>Ruby 2.0.0</code> while arranging to start using it immediately (use) and setting it as the default <code>(--default)</code> gemset, so that any time we open a new terminal window the <code>2.0.0@railstutorial_rails_4_0</code> Ruby/gemset combination is automatically selected.</p>
+
+<p>RVM gives you a separate gem directory for each and every Ruby version and gemset. This means that gems must be explicitly installed for each revision and gemset.</p>
+
+<h3>Gemset commands</h3>
+
+<h4>1. To see the name of the current gemset</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm gemset use teddy
+</span><span class='line'>$ rvm gemset name
+</span><span class='line'>teddy</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2. To list the full directory path for the current gemset:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm gemdir
+</span><span class='line'> /Users/rys/.rvm/gems/2.1.1@teddy</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>3. To list all named gemsets for the current ruby interpreter</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm gemset list
+</span><span class='line'>
+</span><span class='line'> global
+</span><span class='line'> teddy</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>RubyGem</h2>
+
+<p>Package manager for ruby projects and installed as part of rvm.</p>
+
+<h4>1. To check version:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ which gem</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2. Freeze to a gem</h4>
+
+<p>Freezing a system to a particular version to prevent conflict should RubyGem change:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem update --system 2.1.9</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>3. Suppress ri and rdoc documentation due to build time.</h4>
+
+<p>Create a <code>~/.gemrc</code> file with the following contents:</p>
+
+<figure class='code'><figcaption><span>~/.gemrc </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>install: --no-rdoc --no-ri
+</span><span class='line'>update:  --no-rdoc --no-ri</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Install Rails</h2>
+
+<h4>1. Instal rails 4.0.8 for example:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install rails --version 4.0.8</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>2. Check version:</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rails -v
+</span><span class='line'>Rails 4.0.8</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Adding Description and Keywords Meta Tags to Octopress]]></title>
