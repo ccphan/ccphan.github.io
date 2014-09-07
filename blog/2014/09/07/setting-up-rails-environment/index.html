@@ -107,7 +107,7 @@
 
 <h2>Installing Ruby</h2>
 
-<p>Running OS X or Linux use Ruby Version Manager (rvm) to install and manage different versions of ruby.</p>
+<p>Running OS X or Linux use <em>Ruby Version Manager</em> (rvm) to install and manage different versions of ruby.</p>
 
 <h4>1. Install rvm:</h4>
 
@@ -149,14 +149,42 @@
 
 <h4>5. Install Ruby:</h4>
 
+<p>In this instance we are installing ruby version 2 which requires that the openssl location be specified.</p>
+
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm install 2.0.0 --with-openssl-dir=$HOME/.rvm/usr</span></code></pre></td></tr></table></div></figure>
 
 
-<h4>6. Check ruby version installed:</h4>
+<h4>6. Check ruby versions installed:</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm list</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm list
+</span><span class='line'>
+</span><span class='line'>rvm rubies
+</span><span class='line'>
+</span><span class='line'>=* ruby-2.0.0-p481 [ x86_64 ]
+</span><span class='line'>   ruby-2.1.0 [ x86_64 ]
+</span><span class='line'>   ruby-2.1.1 [ x86_64 ]
+</span><span class='line'>
+</span><span class='line'># =&gt; - current
+</span><span class='line'># =* - current && default
+</span><span class='line'>#  * - default</span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>Note</em> you can specify which version of ruby and default to use by:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm --default use &lt;ruby version&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 <h4>7. Check version of ruby in use:</h4>
@@ -167,7 +195,7 @@
 
 <h2>Gemsets</h2>
 
-<p>Gems are essentially self contained packages of ruby code.  Due to possible conflict of gem versions it is useful to tie a particular <code>gem version</code> used for a particular <code>ruby version</code>.  We associate these into a <code>gemset</code>.</p>
+<p>Gems are essentially self contained packages of ruby code.  Due to possible conflict of gem versions it is useful to tie a particular <code>gem version</code> used for a particular <code>ruby version</code>.  We associate these into a <code>gemset</code> and subsquently enforce this use in the application through the Gemfile (more on this later).</p>
 
 <h4>1. Create a gemset for a ruby version:</h4>
 
@@ -175,9 +203,20 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>rvm use 2.0.0@railstutorial_rails_4_0 --create --default</span></code></pre></td></tr></table></div></figure>
 
 
-<p>This command creates <code>(--create)</code> the gemset <code>railstutorial_rails_4_0</code> associated with <code>Ruby 2.0.0</code> while arranging to start using it immediately (use) and setting it as the default <code>(--default)</code> gemset, so that any time we open a new terminal window the <code>2.0.0@railstutorial_rails_4_0</code> Ruby/gemset combination is automatically selected.</p>
+<p>This command creates <code>(--create)</code> the gemset <code>railstutorial_rails_4_0</code> associated with <code>Ruby 2.0.0</code> while arranging to start using it immediately <code>(use)</code> and setting it as the default <code>(--default)</code> gemset, so that any time we open a new terminal window the <code>2.0.0@railstutorial_rails_4_0</code> Ruby/gemset combination is automatically selected.</p>
 
 <p>RVM gives you a separate gem directory for each and every Ruby version and gemset. This means that gems must be explicitly installed for each revision and gemset.</p>
+
+<h3>Setting ruby version and gemset in Gemfile</h3>
+
+<p>We use <em>Bundler</em> to install the required gems needed by the app via <code>bundle install</code>.  Bundler will by default install the latest version of the gem if the ruby version is not specify in the <code>Gemfile</code>.   We can further lock the app to use a specific ruby/gemset combination by specifying this requirement in the Gemfile:</p>
+
+<figure class='code'><figcaption><span>Gemfile </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby '2.0.0'
+</span><span class='line'>#ruby-gemset=railstutorial_rails_4_0</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>Gemset commands</h3>
 
@@ -209,6 +248,28 @@
 </span><span class='line'>
 </span><span class='line'> global
 </span><span class='line'> teddy</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Bundler</h3>
+
+<p>Just a few notes on Bundler commands.  As mentioned before Bundler is used to manager the install of required gems in the app.</p>
+
+<p>To create and install required gems in app we run:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To show the gems installed:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle show</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To check gem dependencies:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle check</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>RubyGem</h2>
@@ -257,6 +318,12 @@
 
 
 <p></p>
+
+<h2>Sublime</h2>
+
+<p>Sublime and TextMate are the most popular choices of editors for Ruby and Rails environment.</p>
+
+<p>For sublime I suggest heading to the <a href="https://github.com/mhartl/rails_tutorial_sublime_text">Rails Tutorial Sublime setup</a> referenced by <a href="https://www.railstutorial.org/book/beginning">Michael Hartl &lsquo;Ruby on Rails Tutorial&rsquo;</a>.</p>
 </div>
 
 
@@ -284,7 +351,7 @@
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/gem/'>gem</a>, <a class='category' href='/blog/categories/gemset/'>gemset,</a>, <a class='category' href='/blog/categories/rails/'>rails,</a>, <a class='category' href='/blog/categories/ruby/'>ruby,</a>, <a class='category' href='/blog/categories/rvm/'>rvm,</a>
+    <a class='category' href='/blog/categories/gem/'>gem</a>, <a class='category' href='/blog/categories/gemset/'>gemset</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/rvm/'>rvm</a>
   
 </span>
 
