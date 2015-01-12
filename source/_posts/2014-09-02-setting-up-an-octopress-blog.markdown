@@ -9,8 +9,9 @@ keywords: Octopress, Heroku, Rails
 ---
 Get blogging with Octopress.  It has a number of advantages:  
 
-    *  Jekyll based and Git-system backed  
-    *  Markdown supported  
+    *  Light weight - Jekyll based
+    *  Git-system backed 
+    *  Markdown support  
     *  Quick and easy to deploy
     *  Stylish code snippet markup  
     *  Supports many plugins driven by Jekyll liquid templating  

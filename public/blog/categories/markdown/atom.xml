@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Markdown | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/markdown/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-07T12:16:59+09:00</updated>
+  <updated>2015-01-12T10:12:06+08:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -16,12 +16,13 @@
   <entry>
     <title type="html"><![CDATA[Setting Up a Octopress Blog]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog/"/>
-    <updated>2014-09-02T15:08:42+09:00</updated>
+    <updated>2014-09-02T14:08:42+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog</id>
     <content type="html"><![CDATA[Get blogging with Octopress.  It has a number of advantages:  
 
-    *  Jekyll based and Git-system backed  
-    *  Markdown supported  
+    *  Light weight - Jekyll based
+    *  Git-system backed 
+    *  Markdown support  
     *  Quick and easy to deploy
     *  Stylish code snippet markup  
     *  Supports many plugins driven by Jekyll liquid templating  

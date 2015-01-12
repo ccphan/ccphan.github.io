@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-07T12:16:59+09:00</updated>
+  <updated>2015-01-12T10:12:06+08:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Adding Description and Keywords Meta Tags to Octopress]]></title>
-    <link href="http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress/"/>
-    <updated>2014-09-06T00:23:58+09:00</updated>
-    <id>http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress</id>
+    <link href="http://ccphan.github.io/blog/2014/09/05/adding-description-and-keyword-meta-tags-to-octopress/"/>
+    <updated>2014-09-05T23:23:58+08:00</updated>
+    <id>http://ccphan.github.io/blog/2014/09/05/adding-description-and-keyword-meta-tags-to-octopress</id>
     <content type="html"><![CDATA[Octopress does not setup description and keyword meta tags.  So you'll need to make a few changes.
 <!-- more -->
 
@@ -72,7 +72,7 @@ After:
   <entry>
     <title type="html"><![CDATA[Escaping Characters in Octopress]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/04/escaping-characters-in-octopress/"/>
-    <updated>2014-09-04T19:38:44+09:00</updated>
+    <updated>2014-09-04T18:38:44+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/04/escaping-characters-in-octopress</id>
     <content type="html"><![CDATA[To ensure that a particular content block won't be parsed by Liquid and displayed 'as is' you can enclose the block contents in `<% raw %>` and `<% endraw %>` tag.
 
@@ -114,7 +114,7 @@ It&#8217;ll appear like:
   <entry>
     <title type="html"><![CDATA[Linking to Internal Posts in Octopress]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress/"/>
-    <updated>2014-09-04T19:09:31+09:00</updated>
+    <updated>2014-09-04T18:09:31+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress</id>
     <content type="html"><![CDATA[You can use the `post_url` to link to your internal posts:
 
@@ -146,11 +146,11 @@ The fix appears to be replace &#8220;markdownify&#8221; to &#8220;markdownize&#8
   <entry>
     <title type="html"><![CDATA[Disqus Comments]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/03/disqus-comments/"/>
-    <updated>2014-09-03T19:11:11+09:00</updated>
+    <updated>2014-09-03T18:11:11+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/03/disqus-comments</id>
-    <content type="html"><![CDATA[Octopress generates static sites so to support comments you will need to turn to a third party service to host your comments.
+    <content type="html"><![CDATA[Octopress generates static sites.  For your site to support comments you will need to use a third party service to host your comments.
 
-Octopress has plugin support to __Disqus__ and it's pretty easy to setup.
+Octopress has plugin support to _Disqus_ and it's pretty easy to setup.
 <!-- more -->
 ### 1. Signup to Disqus
 Head to [disqus](https://disqus.com/ &#8220;Disqus&#8221;) and sign yourself up.  Keep note of the _site short name_ they provide.
@@ -173,12 +173,13 @@ That should be pretty much it.]]></content>
   <entry>
     <title type="html"><![CDATA[Setting Up a Octopress Blog]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog/"/>
-    <updated>2014-09-02T15:08:42+09:00</updated>
+    <updated>2014-09-02T14:08:42+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog</id>
     <content type="html"><![CDATA[Get blogging with Octopress.  It has a number of advantages:  
 
-    *  Jekyll based and Git-system backed  
-    *  Markdown supported  
+    *  Light weight - Jekyll based
+    *  Git-system backed 
+    *  Markdown support  
     *  Quick and easy to deploy
     *  Stylish code snippet markup  
     *  Supports many plugins driven by Jekyll liquid templating  
