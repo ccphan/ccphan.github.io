@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Heroku | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/heroku/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2015-01-12T10:12:06+08:00</updated>
+  <updated>2015-01-12T10:23:10+08:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -238,7 +238,7 @@ The rake task will ask you for a URL of the Github repo. Copy the SSH or HTTPS U
 This will:
 
 - Ask for and store your Github Pages repository url.
-- Rename the remote pointing to imathis/octopress from &#8216;origin&#8217; to &#8216;octopress&#8217;
+- Rename the remote pointing to imathis/octopress from &#8216;octopress&#8217; to &#8216;origin&#8217;
 - Add your Github Pages repository as the default origin remote.
 - Switch the active branch from master to source.
 - Configure your blog&#8217;s url according to your repository.

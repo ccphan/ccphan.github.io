@@ -149,7 +149,7 @@ The rake task will ask you for a URL of the Github repo. Copy the SSH or HTTPS U
 This will:
 
 - Ask for and store your Github Pages repository url.
-- Rename the remote pointing to imathis/octopress from 'origin' to 'octopress'
+- Rename the remote pointing to imathis/octopress from 'octopress' to 'origin'
 - Add your Github Pages repository as the default origin remote.
 - Switch the active branch from master to source.
 - Configure your blog's url according to your repository.

@@ -4,7 +4,7 @@
   <title><![CDATA[A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2015-01-12T10:12:06+08:00</updated>
+  <updated>2015-01-12T10:23:10+08:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -701,7 +701,7 @@
 
 <ul>
 <li>Ask for and store your Github Pages repository url.</li>
-<li>Rename the remote pointing to imathis/octopress from &lsquo;origin&rsquo; to &lsquo;octopress&rsquo;</li>
+<li>Rename the remote pointing to imathis/octopress from &lsquo;octopress&rsquo; to &lsquo;origin&rsquo;</li>
 <li>Add your Github Pages repository as the default origin remote.</li>
 <li>Switch the active branch from master to source.</li>
 <li>Configure your blog&rsquo;s url according to your repository.</li>
