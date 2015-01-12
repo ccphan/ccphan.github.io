@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Heroku | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/heroku/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-07T12:16:59+09:00</updated>
+  <updated>2015-01-12T10:23:10+08:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Getting Started With Heroku]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku/"/>
-    <updated>2014-09-03T19:29:22+09:00</updated>
+    <updated>2014-09-03T18:29:22+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku</id>
     <content type="html"><![CDATA[Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from [heroku dev site](https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction "Heroku setup").
 <!-- more -->
@@ -70,12 +70,13 @@ Head to Heroku Dashboard, select the appropriate app and add the new domain name
   <entry>
     <title type="html"><![CDATA[Setting Up a Octopress Blog]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog/"/>
-    <updated>2014-09-02T15:08:42+09:00</updated>
+    <updated>2014-09-02T14:08:42+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog</id>
     <content type="html"><![CDATA[Get blogging with Octopress.  It has a number of advantages:  
 
-    *  Jekyll based and Git-system backed  
-    *  Markdown supported  
+    *  Light weight - Jekyll based
+    *  Git-system backed 
+    *  Markdown support  
     *  Quick and easy to deploy
     *  Stylish code snippet markup  
     *  Supports many plugins driven by Jekyll liquid templating  
@@ -237,7 +238,7 @@ The rake task will ask you for a URL of the Github repo. Copy the SSH or HTTPS U
 This will:
 
 - Ask for and store your Github Pages repository url.
-- Rename the remote pointing to imathis/octopress from &#8216;origin&#8217; to &#8216;octopress&#8217;
+- Rename the remote pointing to imathis/octopress from &#8216;octopress&#8217; to &#8216;origin&#8217;
 - Add your Github Pages repository as the default origin remote.
 - Switch the active branch from master to source.
 - Configure your blog&#8217;s url according to your repository.

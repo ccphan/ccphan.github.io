@@ -4,7 +4,7 @@
   <title><![CDATA[A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-07T12:16:59+09:00</updated>
+  <updated>2015-01-12T10:23:10+08:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Setting Up Rails Environment]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/07/setting-up-rails-environment/"/>
-    <updated>2014-09-07T01:23:19+09:00</updated>
+    <updated>2014-09-07T00:23:19+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/07/setting-up-rails-environment</id>
     <content type="html"><![CDATA[<p>Time to install Ruby and Rails&hellip;</p>
 
@@ -247,9 +247,9 @@
   
   <entry>
     <title type="html"><![CDATA[Adding Description and Keywords Meta Tags to Octopress]]></title>
-    <link href="http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress/"/>
-    <updated>2014-09-06T00:23:58+09:00</updated>
-    <id>http://ccphan.github.io/blog/2014/09/06/adding-description-and-keyword-meta-tags-to-octopress</id>
+    <link href="http://ccphan.github.io/blog/2014/09/05/adding-description-and-keyword-meta-tags-to-octopress/"/>
+    <updated>2014-09-05T23:23:58+08:00</updated>
+    <id>http://ccphan.github.io/blog/2014/09/05/adding-description-and-keyword-meta-tags-to-octopress</id>
     <content type="html"><![CDATA[<p>Octopress does not setup description and keyword meta tags.  So you&rsquo;ll need to make a few changes.</p>
 
 <!-- more -->
@@ -312,7 +312,7 @@
   <entry>
     <title type="html"><![CDATA[Escaping Characters in Octopress]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/04/escaping-characters-in-octopress/"/>
-    <updated>2014-09-04T19:38:44+09:00</updated>
+    <updated>2014-09-04T18:38:44+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/04/escaping-characters-in-octopress</id>
     <content type="html"><![CDATA[<p>To ensure that a particular content block won&rsquo;t be parsed by Liquid and displayed &lsquo;as is&rsquo; you can enclose the block contents in <code>&lt;% raw %&gt;</code> and <code>&lt;% endraw %&gt;</code> tag.</p>
 
@@ -359,7 +359,7 @@
   <entry>
     <title type="html"><![CDATA[Linking to Internal Posts in Octopress]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress/"/>
-    <updated>2014-09-04T19:09:31+09:00</updated>
+    <updated>2014-09-04T18:09:31+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/04/linking-to-internal-posts-in-octopress</id>
     <content type="html"><![CDATA[<p>You can use the <code>post_url</code> to link to your internal posts:</p>
 
@@ -393,7 +393,7 @@
   <entry>
     <title type="html"><![CDATA[Getting Started With Heroku]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku/"/>
-    <updated>2014-09-03T19:29:22+09:00</updated>
+    <updated>2014-09-03T18:29:22+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/03/getting-started-with-heroku</id>
     <content type="html"><![CDATA[<p>Quick and dirty guide to get you hosting your site online with Heroku.  I pulled most of the details from <a href="https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction" title="Heroku setup">heroku dev site</a>.</p>
 
@@ -463,11 +463,11 @@
   <entry>
     <title type="html"><![CDATA[Disqus Comments]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/03/disqus-comments/"/>
-    <updated>2014-09-03T19:11:11+09:00</updated>
+    <updated>2014-09-03T18:11:11+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/03/disqus-comments</id>
-    <content type="html"><![CDATA[<p>Octopress generates static sites so to support comments you will need to turn to a third party service to host your comments.</p>
+    <content type="html"><![CDATA[<p>Octopress generates static sites.  For your site to support comments you will need to use a third party service to host your comments.</p>
 
-<p>Octopress has plugin support to <strong>Disqus</strong> and it&rsquo;s pretty easy to setup.</p>
+<p>Octopress has plugin support to <em>Disqus</em> and it&rsquo;s pretty easy to setup.</p>
 
 <!-- more -->
 
@@ -495,12 +495,13 @@
   <entry>
     <title type="html"><![CDATA[Setting Up a Octopress Blog]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog/"/>
-    <updated>2014-09-02T15:08:42+09:00</updated>
+    <updated>2014-09-02T14:08:42+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/02/setting-up-an-octopress-blog</id>
     <content type="html"><![CDATA[<p>Get blogging with Octopress.  It has a number of advantages:</p>
 
-<pre><code>*  Jekyll based and Git-system backed  
-*  Markdown supported  
+<pre><code>*  Light weight - Jekyll based
+*  Git-system backed 
+*  Markdown support  
 *  Quick and easy to deploy
 *  Stylish code snippet markup  
 *  Supports many plugins driven by Jekyll liquid templating  
@@ -700,7 +701,7 @@
 
 <ul>
 <li>Ask for and store your Github Pages repository url.</li>
-<li>Rename the remote pointing to imathis/octopress from &lsquo;origin&rsquo; to &lsquo;octopress&rsquo;</li>
+<li>Rename the remote pointing to imathis/octopress from &lsquo;octopress&rsquo; to &lsquo;origin&rsquo;</li>
 <li>Add your Github Pages repository as the default origin remote.</li>
 <li>Switch the active branch from master to source.</li>
 <li>Configure your blog&rsquo;s url according to your repository.</li>

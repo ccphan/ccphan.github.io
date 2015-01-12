@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gem | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/gem/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-07T12:16:59+09:00</updated>
+  <updated>2015-01-12T10:23:10+08:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Setting Up Rails Environment]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/07/setting-up-rails-environment/"/>
-    <updated>2014-09-07T01:23:19+09:00</updated>
+    <updated>2014-09-07T00:23:19+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/07/setting-up-rails-environment</id>
     <content type="html"><![CDATA[Time to install Ruby and Rails...
 <!-- more -->

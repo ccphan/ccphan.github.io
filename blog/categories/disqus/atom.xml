@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Disqus | A Journey on Rails]]></title>
   <link href="http://ccphan.github.io/blog/categories/disqus/atom.xml" rel="self"/>
   <link href="http://ccphan.github.io/"/>
-  <updated>2014-09-07T12:16:59+09:00</updated>
+  <updated>2015-01-12T10:23:10+08:00</updated>
   <id>http://ccphan.github.io/</id>
   <author>
     <name><![CDATA[Chi Phan]]></name>
@@ -16,11 +16,11 @@
   <entry>
     <title type="html"><![CDATA[Disqus Comments]]></title>
     <link href="http://ccphan.github.io/blog/2014/09/03/disqus-comments/"/>
-    <updated>2014-09-03T19:11:11+09:00</updated>
+    <updated>2014-09-03T18:11:11+08:00</updated>
     <id>http://ccphan.github.io/blog/2014/09/03/disqus-comments</id>
-    <content type="html"><![CDATA[Octopress generates static sites so to support comments you will need to turn to a third party service to host your comments.
+    <content type="html"><![CDATA[Octopress generates static sites.  For your site to support comments you will need to use a third party service to host your comments.
 
-Octopress has plugin support to __Disqus__ and it's pretty easy to setup.
+Octopress has plugin support to _Disqus_ and it's pretty easy to setup.
 <!-- more -->
 ### 1. Signup to Disqus
 Head to [disqus](https://disqus.com/ &#8220;Disqus&#8221;) and sign yourself up.  Keep note of the _site short name_ they provide.
